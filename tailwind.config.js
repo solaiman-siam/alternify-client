@@ -2,6 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      gabarito: ["'Gabarito', sans-serif"],
+    },
     extend: {},
   },
   plugins: [require("flowbite/plugin")],
