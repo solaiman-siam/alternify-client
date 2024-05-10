@@ -1,10 +1,10 @@
 import { Divide as Hamburger } from "hamburger-react";
 import { useState } from "react";
-import logo from "../.././public/alternify_logo.png";
-
+import logo from "../.././public/logo_2.png";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-
+import { Avatar } from "flowbite-react";
+import { Dropdown } from "flowbite-react";
 function Navbar() {
   const { user, logoutUser } = useAuth();
 
@@ -28,58 +28,101 @@ function Navbar() {
           <img className="w-[40px]" src={logo} alt="" />
           <h3 className="text-3xl font-bold">Alternify</h3>
         </Link>
-        <ul className="lg:flex gap-4 hidden pl-14">
+        <ul className="lg:flex gap-5 hidden ">
           <NavLink
             to="/"
-            className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF3811]"
+            className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
           >
             Home
           </NavLink>
 
-          {user?.email ? (
+          <NavLink
+            className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+            to="/products"
+          >
+            Products
+          </NavLink>
+          <NavLink
+            to="/donations"
+            className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+          >
+            Donations
+          </NavLink>
+          <NavLink
+            to="/about-us"
+            className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+          >
+            About Us
+          </NavLink>
+          {user && (
             <>
               <NavLink
-                className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF3811]"
-                to="/bookings"
+                to="/my-products"
+                className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
               >
-                My Queries
+                My Products
               </NavLink>
-            </>
-          ) : (
-            <NavLink
-              to="/login"
-              className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF3811]"
-            >
-              Login
-            </NavLink>
-          )}
 
-          <NavLink className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF3811]">
-            Queries
-          </NavLink>
+              <Dropdown
+                label={"Recommendations"}
+                className=""
+                arrowIcon={true}
+                inline
+              >
+                <Dropdown.Item>
+                  <NavLink to={"/my-recommendations"}>
+                    My Recommendations
+                  </NavLink>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <NavLink to={"/recommendations-for-me"}>
+                    Recommendations For Me
+                  </NavLink>
+                </Dropdown.Item>
+              </Dropdown>
+            </>
+          )}
         </ul>
         <div className="flex gap gap-2 ">
-          <div className="lg:flex hidden items-center gap-4">
-            {user?.email ? (
+          <div className="lg:flex hidden items-center justify-center gap-4">
+            {user && (
               <>
+                <Dropdown
+                  label={
+                    <Avatar
+                      className="border-[3px]  border-[#ff81326c] rounded-full"
+                      alt="User settings"
+                      img={user?.photoURL}
+                      rounded
+                    />
+                  }
+                  arrowIcon={false}
+                  inline
+                >
+                  <Dropdown.Header>
+                    <span className="block text-sm">{user?.displayName}</span>
+                    <span className="block truncate text-sm font-medium">
+                      {user?.email}
+                    </span>
+                  </Dropdown.Header>
+                </Dropdown>
                 <button
                   onClick={handleSignOut}
                   type="button"
-                  className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-md  text-sm px-3 py-1.5 text-center  me-2 mb-2"
+                  className="text-white bg-[#FF7F32] mt-2 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-md  text-sm px-3 py-1.5 text-center  me-2 mb-2"
                 >
                   Logout
                 </button>
               </>
-            ) : (
-              <>
-                {" "}
-                <Link
-                  to={"/login"}
-                  className="text-sm rounded-none hover:border-white hover:bg-[#FF3811] btn-ghost btn-outline border-[#FF3811]"
-                >
-                  Login
-                </Link>
-              </>
+            )}
+
+            {!user && (
+              <Link
+                to={"/login"}
+                className="text-white bg-[#FF7F32] mt-2 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-md  text-sm px-3 py-1.5 text-center  me-2 mb-2"
+              >
+                Login
+              </Link>
             )}
           </div>
           <div className="lg:hidden ">
@@ -102,31 +145,31 @@ function Navbar() {
         <ul className="flex-col flex space-y-4  pt-10">
           <NavLink
             to="/"
-            className="hover:text-[#FF3811] font-semibold hover:link-hover"
+            className="hover:text-[#FF7F32] font-semibold hover:link-hover"
           >
             Home
           </NavLink>
-          <NavLink className="hover:text-[#FF3811] font-semibold hover:link-hover">
+          <NavLink className="hover:text-[#FF7F32] font-semibold hover:link-hover">
             Login
           </NavLink>
-          <NavLink className="hover:text-[#FF3811] font-semibold hover:link-hover">
+          <NavLink className="hover:text-[#FF7F32] font-semibold hover:link-hover">
             List
           </NavLink>
-          <NavLink className="hover:text-[#FF3811] font-semibold hover:link-hover">
+          <NavLink className="hover:text-[#FF7F32] font-semibold hover:link-hover">
             Blog
           </NavLink>
-          <NavLink className="hover:text-[#FF3811] font-semibold hover:link-hover">
+          <NavLink className="hover:text-[#FF7F32] font-semibold hover:link-hover">
             Contact
           </NavLink>
         </ul>
         <div className="pt-8 flex gap-4">
           <Link
             to="/login"
-            className="btn btn-sm text-sm bg-[#FF3811] hover:bg-[#FF3811] text-white font-medium rounded-none"
+            className="btn btn-sm text-sm bg-[#FF7F32] hover:bg-[#FF7F32] text-white font-medium rounded-none"
           >
             Login
           </Link>
-          <Link className="btn btn-sm text-sm hover:border-white hover:bg-[#FF3811] btn-ghost btn-outline border-[#FF3811] rounded-none">
+          <Link className="btn btn-sm text-sm hover:border-white hover:bg-[#FF7F32] btn-ghost btn-outline border-[#FF7F32] rounded-none">
             Appointment
           </Link>
         </div>

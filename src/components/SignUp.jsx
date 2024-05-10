@@ -1,12 +1,24 @@
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-
+import { Tooltip } from "react-tooltip";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 function SignUp() {
-  const { createUser, updateProfile, googleSignIn } = useAuth();
-  console.log(createUser);
+  const {
+    createUser,
+    user,
+    updateUserProfile,
+
+    googleSignIn,
+    setUser,
+  } = useAuth();
+
+  const [errorAuth, setErrorAuth] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   // create user with email & password
-  const handleCreateUser = (event) => {
+  const handleCreateUser = async (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -15,20 +27,36 @@ function SignUp() {
     const password = form.password.value;
     console.log(name, email, photo, password);
 
-    createUser(email, password)
-      .then((res) => {
-        console.log(res.user);
-        updateProfile(name, photo)
-          .then(() => {
-            console.log("updated successful");
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      })
-      .catch((err) => {
-        console.log(err);
+    setErrorAuth("");
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).+$/.test(password)) {
+      return setErrorAuth(
+        "This password is easy to guess. Please use at least one uppercase and one lowercase characters."
+      );
+    }
+    if (password.length < 6) {
+      return setErrorAuth(
+        "This password is easy to guess. Please use at least 6 characters."
+      );
+    }
+
+    try {
+      const result = await createUser(email, password);
+      console.log(result);
+      await updateUserProfile(name, photo);
+      Swal.fire({
+        title: "Create User Successfully!",
+        icon: "success",
       });
+      event.target.reset();
+
+      setUser({ ...user, photoURL: photo, displayName: name, email: email });
+    } catch (err) {
+      console.log(err);
+      Swal.fire({
+        title: "Password or Email did not matchl!",
+        icon: "error",
+      });
+    }
   };
 
   //   handle google sign in
@@ -36,9 +64,17 @@ function SignUp() {
     googleSignIn()
       .then((res) => {
         console.log(res);
+        Swal.fire({
+          title: "Login Successful!",
+          icon: "success",
+        });
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          title: "Password or Email did not matchl!",
+          icon: "error",
+        });
       });
   };
 
@@ -53,7 +89,7 @@ function SignUp() {
                 <div className="flex flex-col items-center">
                   <button
                     onClick={handleGoogleSignIn}
-                    className="w-full max-w-xs font-bold shadow-sm rounded-lg py-2 bg-[#ff23610e] text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
+                    className="w-full max-w-xs font-bold shadow-sm rounded-lg py-2 bg-[#ff813217] text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
                   >
                     <div className="bg-white p-2 rounded-full">
                       <svg className="w-4" viewBox="0 0 533.5 544.3">
@@ -110,16 +146,45 @@ function SignUp() {
                     required
                     placeholder="Photo URL"
                   />
-                  <input
-                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                    type="password"
-                    name="password"
-                    required
-                    placeholder="Password"
-                  />
+
+                  <div className="relative">
+                    <input
+                      className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      required
+                      id="password"
+                      placeholder="Password"
+                    />
+                    <div
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-5 top-8 cursor-pointer"
+                    >
+                      {showPassword ? (
+                        <>
+                          <IoIosEye size={24} />
+                        </>
+                      ) : (
+                        <>
+                          <IoIosEyeOff size={24} />
+                        </>
+                      )}
+                    </div>
+
+                    {errorAuth ? (
+                      <>
+                        <p className="text-xs text-red-400  font-medium">
+                          {errorAuth}
+                        </p>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+
                   <button
                     type="submit"
-                    className="mt-5 tracking-wide font-semibold bg-gradient-to-b from-[#FF1C6A] to-[#fd360a95] text-gray-100 w-full py-3 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                    className="mt-5 tracking-wide font-semibold bg-[#FF7F32] text-gray-100 w-full py-3 rounded-lg hover:bg-[#ff8132d6] transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                   >
                     <svg
                       className="w-6 h-6 -ml-2"

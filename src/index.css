@@ -1,6 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper-pagination-bullet-active {
+  background-color: #ff7f32 !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #ff81323d;
+  width: 4px;
+}

@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 function Login() {
+  const { googleSignIn, user, loginUser } = useAuth();
+
+  const [showPassword, setShowPassword] = useState(false);
+
   // handle login user
   const handleLoginUser = (event) => {
     event.preventDefault();
@@ -8,6 +16,37 @@ function Login() {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    loginUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        Swal.fire({
+          title: "Login Successful!",
+          icon: "success",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "Password or email not matched!",
+          icon: "error",
+        });
+      });
+  };
+
+  //   handle google sign in
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "Password or Email did not matchl!",
+          icon: "error",
+        });
+      });
   };
 
   return (
@@ -19,7 +58,10 @@ function Login() {
               <h1 className="text-2xl xl:text-3xl font-extrabold">Login</h1>
               <div className="w-full flex-1 mt-8">
                 <div className="flex flex-col items-center">
-                  <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-2 bg-[#ff23610e] text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className="w-full max-w-xs font-bold shadow-sm rounded-lg py-2 bg-[#ff813211] text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
+                  >
                     <div className="bg-white p-2 rounded-full">
                       <svg className="w-4" viewBox="0 0 533.5 544.3">
                         <path
@@ -61,14 +103,31 @@ function Login() {
                     required
                     placeholder="Email"
                   />
-                  <input
-                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                    type="password"
-                    name="password"
-                    required
-                    placeholder="Password"
-                  />
-                  <button className="mt-5 tracking-wide font-semibold bg-gradient-to-b from-[#FF1C6A] to-[#fd360a95] text-gray-100 w-full py-3 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                  <div className="relative">
+                    <input
+                      className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      required
+                      id="password"
+                      placeholder="Password"
+                    />
+                    <div
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-5 top-8 cursor-pointer"
+                    >
+                      {showPassword ? (
+                        <>
+                          <IoIosEye size={24} />
+                        </>
+                      ) : (
+                        <>
+                          <IoIosEyeOff size={24} />
+                        </>
+                      )}
+                    </div>
+                  </div>
+                  <button className="mt-5 tracking-wide font-semibold bg-[#FF7F32] text-gray-100 w-full py-3 rounded-lg hover:bg-[#ff8132d2] transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                     <svg
                       className="w-6 h-6 -ml-2"
                       fill="none"

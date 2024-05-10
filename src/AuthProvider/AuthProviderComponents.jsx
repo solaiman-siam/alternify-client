@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.config";
@@ -18,14 +19,22 @@ function AuthProviderComponents({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  //   update profile
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
   // create user
-  const createUser = (email, pass) => {
-    return createUserWithEmailAndPassword(auth, email, pass);
+  const createUser = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // login user
-  const loginUser = (email, pass) => {
-    return signInWithEmailAndPassword(auth, email, pass);
+  const loginUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   // logout user
@@ -38,19 +47,11 @@ function AuthProviderComponents({ children }) {
     return signInWithPopup(auth, googleProvider);
   };
 
-  //   update profile
-  const updateProfile = (name, photo) => {
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
-    });
-  };
-
   //   set user on state
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       // set email on localstorage
-      localStorage.setItem("email", currentUser.email);
+      localStorage.setItem("email", currentUser?.email);
 
       // set user on state
       setUser(currentUser);
@@ -63,10 +64,12 @@ function AuthProviderComponents({ children }) {
   const authInfo = {
     user,
     loading,
+    setUser,
     createUser,
     loginUser,
     logoutUser,
     googleSignIn,
+    updateUserProfile,
   };
 
   return (
