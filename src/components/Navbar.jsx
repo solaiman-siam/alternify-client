@@ -70,7 +70,10 @@ function Navbar() {
                 inline
               >
                 <Dropdown.Item>
-                  <NavLink to={"/my-recommendations"}>
+                  <NavLink
+                    className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+                    to={"/my-recommendations"}
+                  >
                     My Recommendations
                   </NavLink>
                 </Dropdown.Item>
