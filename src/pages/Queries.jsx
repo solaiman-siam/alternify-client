@@ -90,12 +90,15 @@ function Queries() {
                   </span>
                 </div>
                 <div className="   mt-8">
-                  <button className="px-4 relative py-2 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C] rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
+                  <Link
+                    to={`/product-details/${query._id}`}
+                    className="px-4 relative py-2 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C] rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
+                  >
                     Recommend
-                    <span className="rounded-full bg-red-500 border-2 border-white text-white font-medium  -right-4 -top-2 text-center p-0.5 w-6 h-6 bg-[] absolute z-10">
+                    <span className="rounded-full bg-[#FF8A4C] border-2 border-white text-white font-medium  -right-4 -top-2 text-center p-0.5 w-6 h-6 bg-[] absolute z-10">
                       5
                     </span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

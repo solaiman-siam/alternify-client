@@ -12,6 +12,7 @@ import RecommendationsForMe from "../pages/RecommendationsForMe";
 import MyQueries from "../pages/MyQueries";
 import Queries from "../pages/Queries";
 import AddQueries from "../pages/AddQueries";
+import ProductDetails from "../pages/ProductDetails";
 
 export const router = createBrowserRouter([
   {
@@ -56,9 +57,13 @@ export const router = createBrowserRouter([
         element: <RecommendationsForMe></RecommendationsForMe>,
       },
       {
-        path: '/add-queries',
-        element: <AddQueries></AddQueries>
-      }
+        path: "/add-queries",
+        element: <AddQueries></AddQueries>,
+      },
+      {
+        path: "/product-details/:id",
+        element: <ProductDetails></ProductDetails>,
+      },
     ],
   },
 ]);

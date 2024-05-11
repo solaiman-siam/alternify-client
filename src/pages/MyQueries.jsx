@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 function MyQueries() {
   const queryClient = useQueryClient();
+  const email = localStorage.getItem("email");
 
   const {
     data: queries = [],
@@ -21,7 +22,7 @@ function MyQueries() {
 
   const getData = async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/my-queries`
+      `${import.meta.env.VITE_API_URL}/my-queries?email=${email}`
     );
     return data;
   };
