@@ -1,4 +1,10 @@
+import axios from "axios";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
+
 function AddQueries() {
+  const { user } = useAuth();
+
   const handleAddQueries = (e) => {
     e.preventDefault();
 
@@ -7,7 +13,34 @@ function AddQueries() {
     const query_title = form.query_title.value;
     const brand = form.brand.value;
     const image_url = form.image_url.value;
+    const details = form.details.value;
+    const current_data_time = new Date(Date.now()).toLocaleString();
     console.log(product_name, query_title, brand, image_url);
+
+    const queriesData = {
+      product_name,
+      query_title,
+      brand,
+      image_url,
+      current_data_time,
+      user_name: user?.displayName,
+      user_email: user?.email,
+      user_image: user?.photoURL,
+      recommendation_count: 0,
+      details,
+    };
+
+    axios
+      .post(`${import.meta.env.VITE_API_URL}/add-queries`, queriesData)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "Queries Added Successfully",
+            icon: "success",
+          });
+        }
+      });
   };
 
   return (

@@ -18,7 +18,7 @@ function Banner() {
             – let's make it count.
           </p>
           <Link
-            to={"/products"}
+            to={"/queries"}
             className="flex gap-4 items-center mt-8 px-6 font-semibold text-white rounded-md  py-3 bg-[#FF7F32]"
           >
             <button>SEE THE BOYCOTT LIST</button>

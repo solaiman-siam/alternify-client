@@ -1,11 +1,95 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 function MyQueries() {
+  const {
+    data: queries = [],
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["my-queries"],
+    queryFn: () => getData(),
+  });
+
+  const getData = async () => {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API_URL}/my-queries`
+    );
+    return data;
+  };
+
+  console.log(queries);
+
+  if (isLoading) return "loading...";
+
   return (
-    <div>
-      <Link to="/add-queries" className="px-4 py-2 bg-orange-400">
-        Add Queries
-      </Link>
+    <div className="max-w-7xl mx-auto">
+      {/* add queries banner */}
+      <div className="bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')] w-full h-[200px]">
+        <div className="flex justify-center items-center w-ful flex-col h-full">
+          <h3 className="text-3xl font-semibold  pb-6">
+            Be the Voice of Change: Share Your Ethical Finds!
+          </h3>
+          <Link
+            to="/add-queries"
+            className="px-4 text-white fon-bold rounded-md py-2 bg-orange-400"
+          >
+            Add Queries
+          </Link>
+        </div>
+      </div>
+
+      {/* my queries  */}
+
+      <div className="">
+        <div className="bg-[#f3f4f68e] h-16 px-14 items-center flex justify-start">
+          <Link to={"/"} className="text-gray-400 pr-4 hover:text-[#FF8A4C]">
+            Home
+          </Link>
+          <IoIosArrowForward color="#7F8389" />
+          <h4 className="text-gray-900 pl-4">My Queries</h4>
+        </div>
+        <h1 className="text-3xl border-b mx-14  mt-12  font-semibold py-8">
+          My Products Collection
+        </h1>
+        <div className="grid grid-cols-3 gap-6 my-14 px-14">
+          {queries.map((query) => (
+            <div
+              key={query._id}
+              className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
+            >
+              <div className="w-1/3 bg-cover ">
+                <img src={query.image_url} alt="" />
+              </div>
+
+              <div className="w-2/3 p-4 md:p-4">
+                <h1 className="text-xl font-bold text-gray-800 dark:text-white">
+                  {query.product_name}
+                </h1>
+
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  {query.details.substring(0, 50)}...
+                </p>
+
+                <div className="flex justify-between mt-3 item-center">
+                  <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C] rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
+                    Update
+                  </button>
+                  <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C] rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
+                    Delete
+                  </button>
+                  <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C]  rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
+                    Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
