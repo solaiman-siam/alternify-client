@@ -12,10 +12,10 @@ function Footer() {
                 <h3 className="text-2xl font-bold">Alternify</h3>
               </div>
               <p className="py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left">
-                Trusted in more than 100 countries & 5 million customers. Have
-                any query ?
+                We believe in the power of consumer choices to drive positive
+                change.
               </p>
-              <a className="py-2.5 px-5 h-9 block w-fit bg-indigo-600 rounded-full shadow-sm text-xs text-white mx-auto transition-all  duration-500 hover:bg-indigo-700 lg:mx-0">
+              <a className="py-2.5 px-5 h-9 block w-fit bg-[#FF7F32] rounded-full shadow-sm text-xs text-white mx-auto transition-all  duration-500 hover:bg-[#ff8132d1] lg:mx-0 cursor-pointer">
                 Contact us
               </a>
             </div>
@@ -26,16 +26,24 @@ function Footer() {
               </h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a className="text-gray-600 hover:text-gray-900">Home</a>
+                  <a className="text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                    Home
+                  </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-gray-900">About</a>
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                    About
+                  </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-gray-900">Pricing</a>
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                    Pricing
+                  </a>
                 </li>
                 <li>
-                  <a className=" text-gray-600 hover:text-gray-900">Features</a>
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                    Features
+                  </a>
                 </li>
               </ul>
             </div>
@@ -46,22 +54,22 @@ function Footer() {
               </h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a className="text-gray-600 hover:text-gray-900">
+                  <a className="text-gray-600 hover:text-[#FF7F32] cursor-pointer">
                     Figma UI System
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-gray-900">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
                     Icons Assets
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-gray-900">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
                     Responsive Blocks
                   </a>
                 </li>
                 <li>
-                  <a className=" text-gray-600 hover:text-gray-900">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
                     Components Library
                   </a>
                 </li>
@@ -74,20 +82,22 @@ function Footer() {
               </h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a className="text-gray-600 hover:text-gray-900">FAQs</a>
+                  <a className="text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                    FAQs
+                  </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-gray-900">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
                     Quick Start
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-gray-900">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
                     Documentation
                   </a>
                 </li>
                 <li>
-                  <a className=" text-gray-600 hover:text-gray-900">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
                     User Guide
                   </a>
                 </li>
@@ -98,20 +108,24 @@ function Footer() {
               <h4 className="text-lg text-gray-900 font-medium mb-7">Blogs</h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a className="text-gray-600 hover:text-gray-900">News</a>
+                  <a className="text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                    News
+                  </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-gray-900">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
                     Tips & Tricks
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-gray-900">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
                     New Updates
                   </a>
                 </li>
                 <li>
-                  <a className=" text-gray-600 hover:text-gray-900">Events</a>
+                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                    Events
+                  </a>
                 </li>
               </ul>
             </div>
@@ -124,7 +138,7 @@ function Footer() {
                 reserved.
               </span>
               <div className="flex mt-4 space-x-4 sm:justify-center lg:mt-0 ">
-                <a className="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-indigo-600">
+                <a className="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-[#FF7F32]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -141,7 +155,7 @@ function Footer() {
                     </g>
                   </svg>
                 </a>
-                <a className="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-indigo-600">
+                <a className="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-[#FF7F32]">
                   <svg
                     className="w-[1.25rem] h-[1.125rem] text-white"
                     viewBox="0 0 15 15"
@@ -154,7 +168,7 @@ function Footer() {
                     />
                   </svg>
                 </a>
-                <a className="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-indigo-600">
+                <a className="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-[#FF7F32]">
                   <svg
                     className="w-[1rem] h-[1rem] text-white"
                     viewBox="0 0 13 12"
@@ -167,7 +181,7 @@ function Footer() {
                     />
                   </svg>
                 </a>
-                <a className="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-indigo-600">
+                <a className="w-9 h-9 rounded-full bg-gray-700 flex justify-center items-center hover:bg-[#FF7F32]">
                   <svg
                     className="w-[1.25rem] h-[0.875rem] text-white"
                     viewBox="0 0 16 12"

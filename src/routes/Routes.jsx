@@ -4,12 +4,14 @@ import Error from "../pages/Error";
 import Home from "../pages/Home";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
-import Products from "../pages/Products";
+
 import AboutUs from "../pages/AboutUs";
 import Donations from "../pages/Donations";
 import MyRecommendations from "../pages/MyRecommendations";
 import RecommendationsForMe from "../pages/RecommendationsForMe";
-import MyProducts from "../pages/MyProducts";
+import MyQueries from "../pages/MyQueries";
+import Queries from "../pages/Queries";
+import AddQueries from "../pages/AddQueries";
 
 export const router = createBrowserRouter([
   {
@@ -30,12 +32,12 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
-        path: "/products",
-        element: <Products></Products>,
+        path: "/queries",
+        element: <Queries></Queries>,
       },
       {
-        path: "/my-products",
-        element: <MyProducts></MyProducts>,
+        path: "/my-queries",
+        element: <MyQueries></MyQueries>,
       },
       {
         path: "/about-us",
@@ -53,6 +55,10 @@ export const router = createBrowserRouter([
         path: "/recommendations-for-me",
         element: <RecommendationsForMe></RecommendationsForMe>,
       },
+      {
+        path: '/add-queries',
+        element: <AddQueries></AddQueries>
+      }
     ],
   },
 ]);

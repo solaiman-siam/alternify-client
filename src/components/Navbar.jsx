@@ -38,9 +38,9 @@ function Navbar() {
 
           <NavLink
             className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
-            to="/products"
+            to="/queries"
           >
-            Products
+            Queries
           </NavLink>
           <NavLink
             to="/donations"
@@ -57,10 +57,10 @@ function Navbar() {
           {user && (
             <>
               <NavLink
-                to="/my-products"
+                to="/my-queries"
                 className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
               >
-                My Products
+                My Queries
               </NavLink>
 
               <Dropdown
@@ -78,7 +78,10 @@ function Navbar() {
                   </NavLink>
                 </Dropdown.Item>
                 <Dropdown.Item>
-                  <NavLink to={"/recommendations-for-me"}>
+                  <NavLink
+                    className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+                    to={"/recommendations-for-me"}
+                  >
                     Recommendations For Me
                   </NavLink>
                 </Dropdown.Item>
@@ -90,25 +93,20 @@ function Navbar() {
           <div className="lg:flex hidden items-center justify-center gap-4">
             {user && (
               <>
-                <Dropdown
-                  label={
-                    <Avatar
-                      className="border-[3px]  border-[#ff81326c] rounded-full"
-                      alt="User settings"
-                      img={user?.photoURL}
-                      rounded
-                    />
-                  }
-                  arrowIcon={false}
-                  inline
-                >
-                  <Dropdown.Header>
-                    <span className="block text-sm">{user?.displayName}</span>
-                    <span className="block truncate text-sm font-medium">
-                      {user?.email}
-                    </span>
-                  </Dropdown.Header>
-                </Dropdown>
+                <div className="w-11 h-fit border-[3px] rounded-full border-[#ff813246]">
+                  <Dropdown
+                    label={<Avatar img={user?.photoURL} alt="User" rounded />}
+                    arrowIcon={false}
+                    inline
+                  >
+                    <Dropdown.Header className="">
+                      <span className="block text-sm">{user?.displayName}</span>
+                      <span className="block truncate text-sm font-medium">
+                        {user?.email}
+                      </span>
+                    </Dropdown.Header>
+                  </Dropdown>
+                </div>
                 <button
                   onClick={handleSignOut}
                   type="button"
