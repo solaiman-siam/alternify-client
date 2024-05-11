@@ -1,11 +1,14 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 function ProductDetails() {
   const { user } = useAuth();
   const { id } = useParams();
+
+  const queryClient = useQueryClient();
 
   const {
     data: product = {},
@@ -31,7 +34,13 @@ function ProductDetails() {
       );
       return data;
     },
-    onSuccess: () => {},
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["product-details"] });
+      Swal.fire({
+        title: "Recommedation Added Successfully!",
+        icon: "success",
+      });
+    },
   });
 
   //   submit recommendation
