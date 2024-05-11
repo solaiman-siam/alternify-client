@@ -1,14 +1,19 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
+import UpdateModal from "../components/UpdateModal";
+import Swal from "sweetalert2";
 
 function MyQueries() {
+  const queryClient = useQueryClient();
+
   const {
     data: queries = [],
     isLoading,
     isError,
     error,
+    refetch,
   } = useQuery({
     queryKey: ["my-queries"],
     queryFn: () => getData(),
@@ -21,7 +26,41 @@ function MyQueries() {
     return data;
   };
 
-  console.log(queries);
+  // delete query
+  const { mutate } = useMutation({
+    mutationFn: async (id) => {
+      const { data } = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/delete-queries/${id}`
+      );
+      return data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["my-queries"] });
+
+      console.log("deleted successfully");
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success",
+      });
+    },
+  });
+
+  const handleDeleteQueries = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        mutate(id);
+      }
+    });
+  };
 
   if (isLoading) return "loading...";
 
@@ -75,10 +114,11 @@ function MyQueries() {
                 </p>
 
                 <div className="flex justify-between mt-3 item-center">
-                  <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C] rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
-                    Update
-                  </button>
-                  <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C] rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
+                  <UpdateModal refetch={refetch} query={query}></UpdateModal>
+                  <button
+                    onClick={() => handleDeleteQueries(query._id)}
+                    className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C] rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
+                  >
                     Delete
                   </button>
                   <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C]  rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
