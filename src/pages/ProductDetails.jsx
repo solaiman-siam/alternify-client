@@ -1,8 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 function ProductDetails() {
+  const { user } = useAuth();
   const { id } = useParams();
 
   const {
@@ -21,36 +23,70 @@ function ProductDetails() {
     return data;
   };
 
-  console.log(product);
+  const { mutate } = useMutation({
+    mutationFn: async (recommendationData) => {
+      const { data } = axios.post(
+        `${import.meta.env.VITE_API_URL}/add-recommendation`,
+        recommendationData
+      );
+      return data;
+    },
+    onSuccess: () => {},
+  });
+
+  //   submit recommendation
+
+  const handleRecommendation = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const recommendation_name = form.product_name.value;
+    const recommendation_details = form.details.value;
+    const recommendation_title = form.query_title.value;
+    const recommendation_image = form.image_url.value;
+    const current_data_time = new Date(Date.now()).toLocaleString();
+
+    const recommendationData = {
+      recommendation_name,
+      recommendation_title,
+      recommendation_image,
+      recommendation_details,
+      queryId: id,
+      recommender_email: user?.email,
+      recommender_name: user?.displayName,
+      user_name: product.user_name,
+      user_email: product.user_email,
+      current_data_time,
+    };
+    console.log(recommendationData);
+
+    mutate(recommendationData);
+  };
+
+  if (isLoading) return "loading....";
 
   return (
     <div>
       <div className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 max-w-7xl mx-auto px-14">
         <div className="max-w-2xl px-12 overflow-hidden h-fit my-10 bg-white rounded-lg  dark:bg-gray-800">
-          <img
-            className="object-cover w-full h-64"
-            src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-            alt="Article"
-          />
+          <div className="flex justify-center">
+            <img className="object-cover w-40  h-40" src={product.image_url} />
+          </div>
 
           <div className="p-6">
             <div>
-              <span className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">
-                Product
+              <span className="text-xs font-medium text-[#FF8A4C] uppercase dark:text-blue-400">
+                {product.query_title}
               </span>
-              <a
+              <h4
                 href="#"
-                className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
+                className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 "
                 tabIndex="0"
-                role="link"
               >
-                I Built A Successful Blog In One Year
-              </a>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Molestie parturient et sem ipsum volutpat vel. Natoque sem et
-                aliquam mauris egestas quam volutpat viverra. In pretium nec
-                senectus erat. Et malesuada lobortis.
+                {product.product_name}
+              </h4>
+              <h5 className="text-xs text-gray-500">{product.brand}</h5>
+              <p className=" mt-4 text-sm text-gray-600 dark:text-gray-400">
+                {product.details}
               </p>
             </div>
 
@@ -59,8 +95,7 @@ function ProductDetails() {
                 <div className="flex items-center">
                   <img
                     className="object-cover h-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1586287011575-a23134f797f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=48&q=60"
-                    alt="Avatar"
+                    src={product.user_image}
                   />
                   <a
                     href="#"
@@ -68,11 +103,11 @@ function ProductDetails() {
                     tabIndex="0"
                     role="link"
                   >
-                    Jone Doe
+                    {product.user_name}
                   </a>
                 </div>
                 <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">
-                  21 SEP 2015
+                  {product?.current_data_time?.split(",")[0]}
                 </span>
               </div>
             </div>
@@ -86,7 +121,7 @@ function ProductDetails() {
           </div>
           {/* form */}
           <div className="p-6 pt-0 space-y-6 h-fit">
-            <form>
+            <form onSubmit={handleRecommendation}>
               <div className="grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-3">
                   <label
@@ -100,8 +135,8 @@ function ProductDetails() {
                     name="product_name"
                     id="product_name"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#ff813211] focus:border-[#ff81320f] block w-full p-2.5"
-                    placeholder="Coca Cola"
-                    required=""
+                    placeholder="Pepsi"
+                    required
                   />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
@@ -117,7 +152,7 @@ function ProductDetails() {
                     id="query_title"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#ff81321d] focus:border-[#ff81321c] block w-full p-2.5"
                     placeholder="Food And Bevarage"
-                    required=""
+                    required
                   />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
@@ -132,8 +167,8 @@ function ProductDetails() {
                     name="brand"
                     id="brand"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#ff813210] focus:border-[#ff813214] block w-full p-2.5"
-                    placeholder="Coca Cola"
-                    required=""
+                    placeholder="PepsiCo"
+                    required
                   />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
@@ -149,7 +184,7 @@ function ProductDetails() {
                     id="image_url"
                     className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#ff813216] focus:border-[#ff81321c] block w-full p-2.5"
                     placeholder="Url"
-                    required=""
+                    required
                   />
                 </div>
                 <div className="col-span-full">
@@ -157,12 +192,13 @@ function ProductDetails() {
                     htmlFor="boycotting_reasons_details"
                     className="text-sm font-medium text-gray-900 block mb-2"
                   >
-                    Boycotting Reason Details
+                    Recommendation Reason
                   </label>
                   <textarea
                     id="boycotting_reasons_details"
                     rows="4"
                     name="details"
+                    required
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#ff813214] focus:border-[#ff81321a] block w-full p-4"
                     placeholder="Details"
                   ></textarea>

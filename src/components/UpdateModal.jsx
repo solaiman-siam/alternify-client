@@ -41,8 +41,6 @@ function UpdateModal({ query }) {
     },
   });
 
-
-
   // update products info
   const handleUpdateQueries = (e) => {
     e.preventDefault();
@@ -66,8 +64,6 @@ function UpdateModal({ query }) {
     mutateAsync(updateData);
   };
 
-  
-
   return (
     <>
       <button
@@ -80,7 +76,7 @@ function UpdateModal({ query }) {
         <Modal.Body>
           <div className="bg-white px-4 rounded-lg  relative ">
             <div className="flex items-start justify-between pb-5 border-b rounded-t">
-              <h3 className="text-xl font-semibold">Add Your Queries</h3>
+              <h3 className="text-xl font-semibold">Update Your Queries</h3>
             </div>
 
             <div className="mt-4 ">

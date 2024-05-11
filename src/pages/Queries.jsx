@@ -34,7 +34,7 @@ function Queries() {
           </div>
         </div>
         {/* breadcrupbs  */}
-        <div className="bg-[#f3f4f68e] h-16 px-14 items-center flex justify-start">
+        <div className="bg-[#ece6e6b1] h-16 px-14 items-center flex justify-start">
           <Link to={"/"} className="text-gray-400 pr-4 hover:text-[#FF8A4C]">
             Home
           </Link>
@@ -42,7 +42,7 @@ function Queries() {
           <h4 className="text-gray-900 pl-4">Queries</h4>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-8 px-14 py-10 bg-gray-100">
+      <div className="grid grid-cols-3 gap-8 px-14 py-20 bg-gray-100">
         {allQueries.map((query) => (
           <div
             key={query._id}
@@ -65,7 +65,7 @@ function Queries() {
                 </h4>
                 <h5 className="text-xs text-gray-500">{query.brand}</h5>
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  {query.details.substring(0, 150)}...
+                  {query.details.substring(0, 100)}...
                 </p>
               </div>
 
@@ -96,7 +96,7 @@ function Queries() {
                   >
                     Recommend
                     <span className="rounded-full bg-[#FF8A4C] border-2 border-white text-white font-medium  -right-4 -top-2 text-center p-0.5 w-6 h-6 bg-[] absolute z-10">
-                      5
+                      {query.recommendation_count}
                     </span>
                   </Link>
                 </div>

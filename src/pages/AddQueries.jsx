@@ -84,7 +84,7 @@ function AddQueries() {
                   id="product_name"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#ff813211] focus:border-[#ff81320f] block w-full p-2.5"
                   placeholder="Coca Cola"
-                  required=""
+                  required
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
@@ -100,7 +100,7 @@ function AddQueries() {
                   id="query_title"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#ff81321d] focus:border-[#ff81321c] block w-full p-2.5"
                   placeholder="Food And Bevarage"
-                  required=""
+                  required
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
@@ -116,7 +116,7 @@ function AddQueries() {
                   id="brand"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#ff813210] focus:border-[#ff813214] block w-full p-2.5"
                   placeholder="Coca Cola"
-                  required=""
+                  required
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
@@ -132,7 +132,7 @@ function AddQueries() {
                   id="image_url"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#ff813216] focus:border-[#ff81321c] block w-full p-2.5"
                   placeholder="Url"
-                  required=""
+                  required
                 />
               </div>
               <div className="col-span-full">
@@ -146,6 +146,7 @@ function AddQueries() {
                   id="boycotting_reasons_details"
                   rows="6"
                   name="details"
+                  required
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#ff813214] focus:border-[#ff81321a] block w-full p-4"
                   placeholder="Details"
                 ></textarea>

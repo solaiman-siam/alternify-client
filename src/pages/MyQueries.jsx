@@ -95,41 +95,55 @@ function MyQueries() {
         <h1 className="text-3xl border-b mx-14  mt-12  font-semibold py-8">
           My Products Collection
         </h1>
-        <div className="grid grid-cols-3 gap-6 my-14 px-14">
-          {queries.map((query) => (
-            <div
-              key={query._id}
-              className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
-            >
-              <div className="w-1/3 bg-cover ">
-                <img src={query.image_url} alt="" />
-              </div>
+        {queries < 1 ? (
+          <>
+            <div className="flex justify-center py-8">No Data Found</div>
+          </>
+        ) : (
+          <>
+            <div className="grid grid-cols-3 gap-6 my-14 px-14">
+              {queries.map((query) => (
+                <div
+                  key={query._id}
+                  className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
+                >
+                  <div className="w-1/3 bg-cover ">
+                    <img src={query.image_url} alt="" />
+                  </div>
 
-              <div className="w-2/3 p-4 md:p-4">
-                <h1 className="text-xl font-bold text-gray-800 dark:text-white">
-                  {query.product_name}
-                </h1>
+                  <div className="w-2/3 p-4 md:p-4">
+                    <h1 className="text-xl font-bold text-gray-800 dark:text-white">
+                      {query.product_name}
+                    </h1>
 
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                  {query.details.substring(0, 50)}...
-                </p>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                      {query.details.substring(0, 50)}...
+                    </p>
 
-                <div className="flex justify-between mt-3 item-center">
-                  <UpdateModal refetch={refetch} query={query}></UpdateModal>
-                  <button
-                    onClick={() => handleDeleteQueries(query._id)}
-                    className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C] rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
-                  >
-                    Delete
-                  </button>
-                  <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C]  rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">
-                    Details
-                  </button>
+                    <div className="flex justify-between mt-3 item-center">
+                      <UpdateModal
+                        refetch={refetch}
+                        query={query}
+                      ></UpdateModal>
+                      <button
+                        onClick={() => handleDeleteQueries(query._id)}
+                        className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C] rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
+                      >
+                        Delete
+                      </button>
+                      <Link
+                        to={`/product-details/${query._id}`}
+                        className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C]  rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"
+                      >
+                        Details
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
       </div>
     </div>
   );
