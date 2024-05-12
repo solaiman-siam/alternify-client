@@ -89,7 +89,7 @@ function Queries() {
                     {query.current_data_time.split(",")[0]}
                   </span>
                 </div>
-                <div className="   mt-8">
+                <div className=" flex justify-start   mt-6">
                   <Link
                     to={`/product-details/${query._id}`}
                     className="px-4 relative py-2 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#FF8A4C] rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600"

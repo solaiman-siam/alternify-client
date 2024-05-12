@@ -10,12 +10,26 @@ function ProductDetails() {
 
   const queryClient = useQueryClient();
 
+  // get recommendation collection
+
+  const { data: allRecommendation = [], isLoading: isLoad } = useQuery({
+    queryKey: ["product-details"],
+    queryFn: () => getRecommendedQueries(),
+  });
+
+  const getRecommendedQueries = async () => {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API_URL}/recommended-queries/${id}`
+    );
+    return data;
+  };
+
   const {
     data: product = {},
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["product-details"],
+    queryKey: ["product-details", { page: 1 }],
     queryFn: () => getData(),
   });
 
@@ -26,16 +40,19 @@ function ProductDetails() {
     return data;
   };
 
-  const { mutate } = useMutation({
+  const { mutate, refetch } = useMutation({
     mutationFn: async (recommendationData) => {
-      const { data } = axios.post(
+      const { data } = await axios.post(
         `${import.meta.env.VITE_API_URL}/add-recommendation`,
         recommendationData
       );
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["product-details"] });
+      queryClient.invalidateQueries({
+        queryKey: ["product-details"],
+      });
+      refetch;
       Swal.fire({
         title: "Recommedation Added Successfully!",
         icon: "success",
@@ -68,8 +85,10 @@ function ProductDetails() {
     };
     console.log(recommendationData);
 
-    mutate(recommendationData);
+    await mutate(recommendationData);
   };
+
+  console.log(allRecommendation);
 
   if (isLoading) return "loading....";
 
@@ -77,7 +96,10 @@ function ProductDetails() {
     <div>
       <div className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 max-w-7xl mx-auto px-14">
         <div className="max-w-2xl px-12 overflow-hidden h-fit my-10 bg-white rounded-lg  dark:bg-gray-800">
-          <div className="flex justify-center">
+          <div className="flex justify-center relative">
+            <span className="absolute right-0 font-bold w-5 h-5 flex justify-center items-center text-white rounded-full bg-orange-400">
+              {product.recommendation_count}
+            </span>
             <img className="object-cover w-40  h-40" src={product.image_url} />
           </div>
 
@@ -122,13 +144,14 @@ function ProductDetails() {
             </div>
           </div>
         </div>
+
+        {/* form */}
         <div className="bg-white h-fit rounded-md mt-6  relative m-2">
           <div className="flex items-start justify-between  p-5 pt-2   rounded-t">
             <h4 className="text-2xl font-medium border-b pb-5 w-full">
               Add Alternative Products
             </h4>
           </div>
-          {/* form */}
           <div className="p-6 pt-0 space-y-6 h-fit">
             <form onSubmit={handleRecommendation}>
               <div className="grid grid-cols-6 gap-6">
@@ -222,6 +245,38 @@ function ProductDetails() {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      </div>
+      {/* comment */}
+      <div>
+        <h3 className="text-3xl font-semibold px-14">
+          All Recommendation Here
+        </h3>
+        <div>
+          <div className="grid grid-cols-3 gap-6 my-14 px-14">
+            {allRecommendation.map((query) => (
+              <div
+                key={query._id}
+                className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
+              >
+                <div className="w-1/3 bg-cover ">
+                  <img src={query.recommendation_image} alt="" />
+                </div>
+
+                <div className="w-2/3 p-4 md:p-4">
+                  <h1 className="text-xl font-bold text-gray-800 dark:text-white">
+                    {query.recommendation_name}
+                  </h1>
+
+                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    {query?.recommendation_details?.substring(0, 50)}...
+                  </p>
+
+                  <div className="flex justify-between mt-3 item-center"></div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
