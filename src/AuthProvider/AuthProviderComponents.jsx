@@ -57,6 +57,7 @@ function AuthProviderComponents({ children }) {
       setUser(currentUser);
     });
     return () => {
+      
       unSubscribe();
     };
   }, []);

@@ -38,6 +38,7 @@ function UpdateModal({ query }) {
         title: "Updated Successful!",
         icon: "success",
       });
+      setOpenModal(false);
     },
   });
 

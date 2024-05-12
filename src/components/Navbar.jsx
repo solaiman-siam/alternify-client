@@ -15,6 +15,7 @@ function Navbar() {
     logoutUser()
       .then(() => {
         console.log("logout successful");
+        localStorage.removeItem("email");
       })
       .catch((error) => {
         console.log(error);
@@ -71,7 +72,7 @@ function Navbar() {
               >
                 <Dropdown.Item>
                   <NavLink
-                    className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+                    className="btn btn-sm   border-none shadow-none hover:text-[#FF7F32]"
                     to={"/my-recommendations"}
                   >
                     My Recommendations
@@ -79,7 +80,7 @@ function Navbar() {
                 </Dropdown.Item>
                 <Dropdown.Item>
                   <NavLink
-                    className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+                    className="btn btn-sm   border-none shadow-none hover:text-[#FF7F32]"
                     to={"/recommendations-for-me"}
                   >
                     Recommendations For Me

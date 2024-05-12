@@ -68,7 +68,7 @@ function MyQueries() {
   return (
     <div className="max-w-7xl mx-auto">
       {/* add queries banner */}
-      <div className="bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')] w-full h-[200px]">
+      <div className="bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')] w-full h-[250px]">
         <div className="flex justify-center items-center w-ful flex-col h-full">
           <h3 className="text-3xl font-semibold  pb-6">
             Be the Voice of Change: Share Your Ethical Finds!

@@ -8,11 +8,11 @@ function ProductDetails() {
   const { user } = useAuth();
   const { id } = useParams();
 
+  // query client
   const queryClient = useQueryClient();
 
   // get recommendation collection
-
-  const { data: allRecommendation = [], isLoading: isLoad } = useQuery({
+  const { data: allRecommendation = [] } = useQuery({
     queryKey: ["product-details"],
     queryFn: () => getRecommendedQueries(),
   });
@@ -24,11 +24,8 @@ function ProductDetails() {
     return data;
   };
 
-  const {
-    data: product = {},
-    isLoading,
-    isError,
-  } = useQuery({
+  // product details
+  const { data: product = {}, isLoading } = useQuery({
     queryKey: ["product-details", { page: 1 }],
     queryFn: () => getData(),
   });
@@ -40,6 +37,7 @@ function ProductDetails() {
     return data;
   };
 
+  // sumbit recommend form
   const { mutate, refetch } = useMutation({
     mutationFn: async (recommendationData) => {
       const { data } = await axios.post(
@@ -60,8 +58,7 @@ function ProductDetails() {
     },
   });
 
-  //   submit recommendation
-
+  //   submit recommendation handler
   const handleRecommendation = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -83,12 +80,9 @@ function ProductDetails() {
       user_email: product.user_email,
       current_data_time,
     };
-    console.log(recommendationData);
 
     await mutate(recommendationData);
   };
-
-  console.log(allRecommendation);
 
   if (isLoading) return "loading....";
 
@@ -248,7 +242,8 @@ function ProductDetails() {
           </div>
         </div>
       </div>
-      {/* comment */}
+
+      {/* comment or recommendations */}
       <div>
         <h3 className="text-3xl font-semibold px-14">
           All Recommendation Here
@@ -268,6 +263,7 @@ function ProductDetails() {
                   <h1 className="text-xl font-bold text-gray-800 dark:text-white">
                     {query.recommendation_name}
                   </h1>
+                  <h4>{query.recommendation_title}</h4>
 
                   <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                     {query?.recommendation_details?.substring(0, 50)}...
