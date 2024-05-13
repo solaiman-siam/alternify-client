@@ -1,9 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function MyRecommendations() {
   const email = localStorage.getItem("email");
 
+  const queryClient = useQueryClient();
+
+  // get my recommendation collection
   const { data: MyRecommendations = [] } = useQuery({
     queryKey: ["my-recommendation"],
     queryFn: () => getData(),
@@ -16,10 +20,54 @@ function MyRecommendations() {
     return data;
   };
 
-  console.log(MyRecommendations);
+  // delete and update recommended count
+  const { mutate } = useMutation({
+    mutationFn: async (deleteData) => {
+      const { data } = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/delete-recommendation/${
+          deleteData.id
+        }`,
+        {
+          data: {
+            var1: deleteData.countId,
+          },
+        }
+      );
+      return data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["my-recommendation"] });
+      console.log("deleted successfully");
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success",
+      });
+    },
+  });
+
+  const handleDeleteRecommendation = (id, countId) => {
+    const deleteData = { id, countId };
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        mutate(deleteData);
+      }
+    });
+
+    
+  };
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto px-8">
       <section className="container px-4 mx-auto py-6">
         <div className="flex items-center gap-x-3">
           <h2 className="text-lg font-medium text-gray-800 dark:text-white">
@@ -76,7 +124,7 @@ function MyRecommendations() {
                         scope="col"
                         className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
-                        Teams
+                        Actions
                       </th>
 
                       <th scope="col" className="relative py-3.5 px-4">
@@ -113,26 +161,21 @@ function MyRecommendations() {
                           {recommend.current_data_time?.split(",")[0]}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {recommend.user_email}
+                          {recommend.recommender_email}
                         </td>
 
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <div className="flex items-center gap-x-6">
-                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth="1.5"
-                                stroke="currentColor"
-                                className="w-5 h-5"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                                />
-                              </svg>
+                            <button
+                              onClick={() =>
+                                handleDeleteRecommendation(
+                                  recommend._id,
+                                  recommend.queryId
+                                )
+                              }
+                              className="bg-orange-400 px-3 py-2 text-white transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 rounded-md hover:bg-[#ff81329e] focus:outline-none"
+                            >
+                              Delete
                             </button>
                           </div>
                         </td>

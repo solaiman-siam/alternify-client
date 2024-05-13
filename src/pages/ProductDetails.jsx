@@ -269,7 +269,24 @@ function ProductDetails() {
                     {query?.recommendation_details?.substring(0, 50)}...
                   </p>
 
-                  <div className="flex justify-between mt-3 item-center"></div>
+                  <div className="flex items-center mt-2">
+                    <div className="flex items-center">
+                      <a
+                        href="#"
+                        className=" mr-2 font-semibold text-gray-700 dark:text-gray-200"
+                        tabIndex="0"
+                        role="link"
+                      >
+                        {query.recommender_name}
+                      </a>
+                    </div>
+                    <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">
+                      {query.current_data_time.split(",")[0]}
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-500">
+                    {query.recommender_email}
+                  </p>
                 </div>
               </div>
             ))}

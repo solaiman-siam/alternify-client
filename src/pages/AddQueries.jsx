@@ -39,6 +39,7 @@ function AddQueries() {
             title: "Queries Added Successfully",
             icon: "success",
           });
+          e.target.reset();
         }
       });
   };

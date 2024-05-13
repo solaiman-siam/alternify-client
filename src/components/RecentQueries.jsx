@@ -56,7 +56,7 @@ function RecentQueries() {
                     />
                     <a
                       href="#"
-                      className="mx-2 font-semibold text-gray-700 dark:text-gray-200"
+                      className="mx-2 text-sm font-semibold text-gray-700 dark:text-gray-200"
                       tabIndex="0"
                       role="link"
                     >
