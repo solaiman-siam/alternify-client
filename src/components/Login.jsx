@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useState } from "react";
@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 function Login() {
   const { googleSignIn, user, loginUser } = useAuth();
 
+  const location = useLocation();
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false);
 
   // handle login user
@@ -24,6 +26,7 @@ function Login() {
           title: "Login Successful!",
           icon: "success",
         });
+        navigate(location.state || '/')
       })
       .catch((err) => {
         console.log(err);
@@ -39,6 +42,7 @@ function Login() {
     googleSignIn()
       .then((res) => {
         console.log(res);
+        navigate(location.state || '/')
       })
       .catch((err) => {
         console.log(err);

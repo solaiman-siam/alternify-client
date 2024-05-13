@@ -16,12 +16,29 @@ function RecentQueries() {
 
   console.log(recentQueries);
 
-  if (isLoading) return "loading.....";
+  if (isLoading)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <l-line-wobble
+          size="80"
+          stroke="5"
+          bg-opacity="0.1"
+          speed="1.75"
+          color="orange"
+        ></l-line-wobble>
+      </div>
+    );
+
+  const sortRecentQueries = recentQueries.sort((a, b) =>
+    b.current_data_time.localeCompare(a.current_data_time)
+  );
+
+  // const recentEight = sortRecentQueries.
 
   return (
-    <div>
-      <div className="grid grid-cols-4 gap-8 px-14 py-20 bg-gray-100">
-        {recentQueries.map((query) => (
+    <div className="max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 lg:px-14 px-6 md:px-10 py-20 bg-orange-50">
+        {sortRecentQueries.slice(0, 8).map((query) => (
           <div
             key={query._id}
             className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"

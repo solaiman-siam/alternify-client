@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import { Tooltip } from "react-tooltip";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 function SignUp() {
+  const navigate = useNavigate();
+
   const {
     createUser,
     user,
@@ -48,7 +49,7 @@ function SignUp() {
         icon: "success",
       });
       event.target.reset();
-
+      navigate("/");
       setUser({ ...user, photoURL: photo, displayName: name, email: email });
     } catch (err) {
       console.log(err);

@@ -12,10 +12,12 @@ function Footer() {
                 <h3 className="text-2xl font-bold">Alternify</h3>
               </div>
               <p className="py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left">
-                We believe in the power of consumer choices to drive positive
-                change.
+                Welcome to Alternify - a gateway to ethical consumerism and
+                meaningful change. Here, you'll find a curated collection of
+                alternatives sourced from regions aligned with principles of
+                justice and human rights.
               </p>
-              <a className="py-2.5 px-5 h-9 block w-fit bg-[#FF7F32] rounded-full shadow-sm text-xs text-white mx-auto transition-all  duration-500 hover:bg-[#ff8132d1] lg:mx-0 cursor-pointer">
+              <a className="py-2.5 px-5 h-9 block w-fit bg-[#FF7F32] rounded-md shadow-sm text-xs text-white mx-auto transition-all  duration-500 hover:bg-[#ff8132d1] lg:mx-0 cursor-pointer">
                 Contact us
               </a>
             </div>
@@ -105,26 +107,40 @@ function Footer() {
             </div>
             {/* <!--End Col--> */}
             <div className="lg:mx-auto text-left">
-              <h4 className="text-lg text-gray-900 font-medium mb-7">Blogs</h4>
+              <h4 className="text-lg text-gray-900 font-medium mb-7">
+                Contact
+              </h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a className="text-gray-600 hover:text-[#FF7F32] cursor-pointer">
-                    News
+                  <a
+                    href="https://www.facebook.com/solaimansiam.me"
+                    className="text-gray-600 hover:text-[#FF7F32] cursor-pointer"
+                  >
+                    Facebook
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
-                    Tips & Tricks
+                  <a
+                    href="https://www.linkedin.com/in/solaimansiam/"
+                    className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer"
+                  >
+                    Linkedin
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
-                    New Updates
+                  <a
+                    href="https://twitter.com/solaimansiam"
+                    className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer"
+                  >
+                    Twitter
                   </a>
                 </li>
                 <li>
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
-                    Events
+                  <a
+                    href="https://www.instagram.com/solaiman_siam/"
+                    className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer"
+                  >
+                    Instagram
                   </a>
                 </li>
               </ul>
@@ -134,7 +150,7 @@ function Footer() {
           <div className="py-7 border-t border-gray-200">
             <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
               <span className="text-sm text-gray-500 ">
-                ©<a href="https://pagedone.io/">pagedone</a> 2024, All rights
+                ©<a href="https://pagedone.io/">Alternify</a> 2024, All rights
                 reserved.
               </span>
               <div className="flex mt-4 space-x-4 sm:justify-center lg:mt-0 ">

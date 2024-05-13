@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { Badge } from "flowbite-react";
+
 function Queries() {
   const {
     data: allQueries = [],
@@ -20,7 +20,29 @@ function Queries() {
     return data;
   };
 
-  if (isLoading) return "loading.....";
+  if (isLoading) return <div className="w-full h-screen flex justify-center items-center">
+  <l-line-wobble
+    size="80"
+    stroke="5"
+    bg-opacity="0.1"
+    speed="1.75"
+    color="orange"
+  ></l-line-wobble>
+</div>
+
+  const sortAllQueries = allQueries.sort((a, b) =>
+    b.current_data_time.localeCompare(a.current_data_time)
+  );
+
+  if(isLoading) return <div className="w-full h-screen flex justify-center items-center">
+  <l-line-wobble
+    size="80"
+    stroke="5"
+    bg-opacity="0.1"
+    speed="1.75"
+    color="orange"
+  ></l-line-wobble>
+</div>
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -43,7 +65,7 @@ function Queries() {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-8 px-14 py-20 bg-gray-100">
-        {allQueries.map((query) => (
+        {sortAllQueries.map((query) => (
           <div
             key={query._id}
             className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"

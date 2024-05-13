@@ -63,7 +63,22 @@ function MyQueries() {
     });
   };
 
-  if (isLoading) return "loading...";
+  const sortMyQueries = queries.sort((a, b) =>
+    b.current_data_time.localeCompare(a.current_data_time)
+  );
+
+  if (isLoading)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <l-line-wobble
+          size="80"
+          stroke="5"
+          bg-opacity="0.1"
+          speed="1.75"
+          color="orange"
+        ></l-line-wobble>
+      </div>
+    );
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -102,7 +117,7 @@ function MyQueries() {
         ) : (
           <>
             <div className="grid grid-cols-3 gap-6 my-14 px-14">
-              {queries.map((query) => (
+              {sortMyQueries.map((query) => (
                 <div
                   key={query._id}
                   className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"

@@ -29,11 +29,13 @@ function AuthProviderComponents({ children }) {
 
   // create user
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // login user
   const loginUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -44,6 +46,7 @@ function AuthProviderComponents({ children }) {
 
   // sign in with google
   const googleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
@@ -55,9 +58,9 @@ function AuthProviderComponents({ children }) {
 
       // set user on state
       setUser(currentUser);
+      setLoading(false);
     });
     return () => {
-      
       unSubscribe();
     };
   }, []);

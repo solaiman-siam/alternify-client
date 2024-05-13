@@ -13,6 +13,7 @@ import MyQueries from "../pages/MyQueries";
 import Queries from "../pages/Queries";
 import AddQueries from "../pages/AddQueries";
 import ProductDetails from "../pages/ProductDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-queries",
-        element: <MyQueries></MyQueries>,
+        element: (
+          <PrivateRoutes>
+            <MyQueries></MyQueries>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/about-us",
@@ -50,19 +55,35 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-recommendations",
-        element: <MyRecommendations></MyRecommendations>,
+        element: (
+          <PrivateRoutes>
+            <MyRecommendations></MyRecommendations>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/recommendations-for-me",
-        element: <RecommendationsForMe></RecommendationsForMe>,
+        element: (
+          <PrivateRoutes>
+            <RecommendationsForMe></RecommendationsForMe>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/add-queries",
-        element: <AddQueries></AddQueries>,
+        element: (
+          <PrivateRoutes>
+            <AddQueries></AddQueries>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/product-details/:id",
-        element: <ProductDetails></ProductDetails>,
+        element: (
+          <PrivateRoutes>
+            <ProductDetails></ProductDetails>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

@@ -66,6 +66,7 @@ function ProductDetails() {
     const recommendation_details = form.details.value;
     const recommendation_title = form.query_title.value;
     const recommendation_image = form.image_url.value;
+    const recommendation_brand = form.brand.value;
     const current_data_time = new Date(Date.now()).toLocaleString();
 
     const recommendationData = {
@@ -73,6 +74,7 @@ function ProductDetails() {
       recommendation_title,
       recommendation_image,
       recommendation_details,
+      recommendation_brand,
       queryId: id,
       recommender_email: user?.email,
       recommender_name: user?.displayName,
@@ -84,10 +86,21 @@ function ProductDetails() {
     await mutate(recommendationData);
   };
 
-  if (isLoading) return "loading....";
+  if (isLoading)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <l-line-wobble
+          size="80"
+          stroke="5"
+          bg-opacity="0.1"
+          speed="1.75"
+          color="orange"
+        ></l-line-wobble>
+      </div>
+    );
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <div className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 max-w-7xl mx-auto px-14">
         <div className="max-w-2xl px-12 overflow-hidden h-fit my-10 bg-white rounded-lg  dark:bg-gray-800">
           <div className="flex justify-center relative">
@@ -244,52 +257,62 @@ function ProductDetails() {
       </div>
 
       {/* comment or recommendations */}
-      <div>
-        <h3 className="text-3xl font-semibold px-14">
+      <div className="">
+        <h3 className="text-3xl font-semibold mx-14 border-b   pb-6">
           All Recommendation Here
         </h3>
         <div>
           <div className="grid grid-cols-3 gap-6 my-14 px-14">
-            {allRecommendation.map((query) => (
-              <div
-                key={query._id}
-                className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
-              >
-                <div className="w-1/3 bg-cover ">
-                  <img src={query.recommendation_image} alt="" />
+            {allRecommendation < 1 ? (
+              <>
+                <div className="flex col-span-3 justify-center py-8">
+                  <h1 className="text-center ">No Data Found</h1>
                 </div>
-
-                <div className="w-2/3 p-4 md:p-4">
-                  <h1 className="text-xl font-bold text-gray-800 dark:text-white">
-                    {query.recommendation_name}
-                  </h1>
-                  <h4>{query.recommendation_title}</h4>
-
-                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                    {query?.recommendation_details?.substring(0, 50)}...
-                  </p>
-
-                  <div className="flex items-center mt-2">
-                    <div className="flex items-center">
-                      <a
-                        href="#"
-                        className=" mr-2 font-semibold text-gray-700 dark:text-gray-200"
-                        tabIndex="0"
-                        role="link"
-                      >
-                        {query.recommender_name}
-                      </a>
+              </>
+            ) : (
+              <>
+                {allRecommendation.map((query) => (
+                  <div
+                    key={query._id}
+                    className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
+                  >
+                    <div className="w-1/3 bg-cover ">
+                      <img src={query.recommendation_image} alt="" />
                     </div>
-                    <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">
-                      {query.current_data_time.split(",")[0]}
-                    </span>
+
+                    <div className="w-2/3 p-4 md:p-4">
+                      <h1 className="text-xl font-bold text-gray-800 dark:text-white">
+                        {query.recommendation_name}
+                      </h1>
+                      <h4>{query.recommendation_title}</h4>
+
+                      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        {query?.recommendation_details?.substring(0, 50)}...
+                      </p>
+
+                      <div className="flex items-center mt-2">
+                        <div className="flex items-center">
+                          <a
+                            href="#"
+                            className=" mr-2 font-semibold text-gray-700 dark:text-gray-200"
+                            tabIndex="0"
+                            role="link"
+                          >
+                            {query.recommender_name}
+                          </a>
+                        </div>
+                        <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">
+                          {query.current_data_time.split(",")[0]}
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500">
+                        {query.recommender_email}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs text-gray-500">
-                    {query.recommender_email}
-                  </p>
-                </div>
-              </div>
-            ))}
+                ))}
+              </>
+            )}
           </div>
         </div>
       </div>

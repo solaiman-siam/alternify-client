@@ -8,7 +8,7 @@ function MyRecommendations() {
   const queryClient = useQueryClient();
 
   // get my recommendation collection
-  const { data: MyRecommendations = [] } = useQuery({
+  const { data: MyRecommendations = [], isLoading } = useQuery({
     queryKey: ["my-recommendation"],
     queryFn: () => getData(),
   });
@@ -62,12 +62,23 @@ function MyRecommendations() {
         mutate(deleteData);
       }
     });
-
-    
   };
 
+  if (isLoading)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <l-line-wobble
+          size="80"
+          stroke="5"
+          bg-opacity="0.1"
+          speed="1.75"
+          color="orange"
+        ></l-line-wobble>
+      </div>
+    );
+
   return (
-    <div className="max-w-7xl mx-auto px-8">
+    <div className="max-w-7xl mx-auto px-8 pt-5 pb-24">
       <section className="container px-4 mx-auto py-6">
         <div className="flex items-center gap-x-3">
           <h2 className="text-lg font-medium text-gray-800 dark:text-white">
