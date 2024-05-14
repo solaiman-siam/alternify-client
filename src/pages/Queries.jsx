@@ -24,12 +24,12 @@ function Queries() {
   useEffect(() => {
     const getCount = async () => {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/queries-count`
+        `${import.meta.env.VITE_API_URL}/queries-count?search=${search}`
       );
       setCount(data.count);
     };
     getCount();
-  }, []);
+  }, [search]);
 
   // get pagination  data
 
@@ -66,7 +66,7 @@ function Queries() {
   const handleSearch = (e) => {
     e.preventDefault();
     const text = e.target.search.value;
-    console.log(text);
+    setSearch(text);
   };
 
   const sortAllQueries = allQueries.sort((a, b) =>
