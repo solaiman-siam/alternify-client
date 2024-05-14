@@ -32,10 +32,10 @@ function Slider() {
               <h3 className="text-[#FF7F32] font-semibold text-xl md:text-xl  lg:text-2xl pb-4">
                 ETHICAL CONSUMPTION GUIDE
               </h3>
-              <h1 className="font-semibold md:text-4xl text-3xl lg:text-6xl pb-6">
+              <h1 className="font-semibold md:text-4xl dark:text-gray-700 text-3xl lg:text-6xl pb-6">
                 The Boycott List
               </h1>
-              <p className="text-[#57534E] md:text-lg text-base lg:text-xl md:w-11/12 w-10/12 lg:w-9/12">
+              <p className="text-[#57534E] md:text-lg dark:text-gray-500 text-base lg:text-xl md:w-11/12 w-10/12 lg:w-9/12">
                 A simple boycott list that features Israeli companies and global
                 entities with significant activities in Israel. It aims to guide
                 those who seek to make purchasing decisions that aims to put
@@ -51,10 +51,10 @@ function Slider() {
               <h3 className="text-[#FF7F32] font-semibold uppercase text-xl md:text-xl  lg:text-2xl pb-4">
                 ETHICAL CONSUMPTION GUIDE
               </h3>
-              <h1 className="font-semibold md:text-4xl text-3xl lg:text-6xl  pb-6">
+              <h1 className="font-semibold md:text-4xl dark:text-gray-700 text-3xl lg:text-6xl  pb-6">
                 Justice in Consumption
               </h1>
-              <p className="text-[#57534E] md:text-lg text-base lg:text-xl md:w-11/12 w-10/12 lg:w-9/12">
+              <p className="text-[#57534E] md:text-lg dark:text-gray-500 text-base lg:text-xl md:w-11/12 w-10/12 lg:w-9/12">
                 Welcome to Alternify, a platform for conscientious consumers to
                 make informed choices and stand up for justice. Join us in
                 boycotting products from regions with oppressive policies and
@@ -69,10 +69,10 @@ function Slider() {
               <h3 className="text-[#FF7F32] font-semibold uppercase text-xl md:text-xl  lg:text-2xl pb-4">
                 ETHICAL CONSUMPTION GUIDE
               </h3>
-              <h1 className="font-semibold md:text-4xl text-3xl lg:text-6xl  pb-6">
+              <h1 className="font-semibold md:text-4xl dark:text-gray-700 text-3xl lg:text-6xl  pb-6">
                 Conscious Consumer Network
               </h1>
-              <p className="text-[#57534E] md:text-lg text-base lg:text-xl md:w-11/12 w-10/12 lg:w-9/12">
+              <p className="text-[#57534E] dark:text-gray-500 md:text-lg text-base lg:text-xl md:w-11/12 w-10/12 lg:w-9/12">
                 We believe in the power of consumer choices to drive positive
                 change. Our platform provides a space for users to share and
                 discover alternatives to products from regions with troubling

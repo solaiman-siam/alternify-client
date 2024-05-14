@@ -10,10 +10,10 @@ function Donate() {
           <h3 className="text-xl font-medium text-orange-400 pb-4">
             PALESTINIANS NEEDS YOU
           </h3>
-          <h2 className="lg:text-4xl md:text-3xl text-3xl font-semibold pb-4">
+          <h2 className="lg:text-4xl dark:text-gray-200 md:text-3xl text-3xl font-semibold pb-4">
             Emergency Relief for Gaza
           </h2>
-          <p className="text-slate-500 pb-8">
+          <p className="text-slate-500 dark:text-gray-300 pb-8">
             A complete siege has cut off all access to food, water, fuel, and
             electricity, affecting 2.3 million people. Gaza's only power plant
             has shut down, plunging the region into darkness. Hospital

@@ -3,15 +3,17 @@ import logo from "../../public/logo_2.png";
 function Footer() {
   return (
     <div>
-      <footer className="w-full">
+      <footer className="w-full dark:bg-gray-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-8 py-10 max-sm:max-w-sm max-sm:mx-auto gap-y-8">
             <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
               <div className="flex gap-1 md:justify-start lg:justify-start justify-center">
                 <img className="w-[35px]" src={logo} alt="" />
-                <h3 className="text-2xl font-bold">Alternify</h3>
+                <h3 className="text-2xl font-bold dark:text-gray-200">
+                  Alternify
+                </h3>
               </div>
-              <p className="py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left">
+              <p className="py-8 text-sm dark:text-gray-300 text-gray-500 lg:max-w-xs text-center lg:text-left">
                 Welcome to Alternify - a gateway to ethical consumerism and
                 meaningful change. Here, you'll find a curated collection of
                 alternatives sourced from regions aligned with principles of
@@ -22,28 +24,28 @@ function Footer() {
               </a>
             </div>
             {/* <!--End Col--> */}
-            <div className="lg:mx-auto text-left ">
-              <h4 className="text-lg text-gray-900 font-medium mb-7">
+            <div className="lg:mx-auto dark:text-gray-300 text-left ">
+              <h4 className="text-lg dark:text-gray-200  text-gray-900 font-medium mb-7">
                 Alternify
               </h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a className="text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className="text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     Home
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     About
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     Pricing
                   </a>
                 </li>
                 <li>
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     Features
                   </a>
                 </li>
@@ -51,27 +53,27 @@ function Footer() {
             </div>
             {/* <!--End Col--> */}
             <div className="lg:mx-auto text-left ">
-              <h4 className="text-lg text-gray-900 font-medium mb-7">
+              <h4 className="text-lg text-gray-900 dark:text-gray-200 font-medium mb-7">
                 Products
               </h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a className="text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className="text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     Figma UI System
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     Icons Assets
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     Responsive Blocks
                   </a>
                 </li>
                 <li>
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     Components Library
                   </a>
                 </li>
@@ -79,27 +81,27 @@ function Footer() {
             </div>
             {/* <!--End Col--> */}
             <div className="lg:mx-auto text-left">
-              <h4 className="text-lg text-gray-900 font-medium mb-7">
+              <h4 className="text-lg text-gray-900 dark:text-gray-200 font-medium mb-7">
                 Resources
               </h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <a className="text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className="text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     FAQs
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     Quick Start
                   </a>
                 </li>
                 <li className="mb-6">
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     Documentation
                   </a>
                 </li>
                 <li>
-                  <a className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer">
+                  <a className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer">
                     User Guide
                   </a>
                 </li>
@@ -107,14 +109,14 @@ function Footer() {
             </div>
             {/* <!--End Col--> */}
             <div className="lg:mx-auto text-left">
-              <h4 className="text-lg text-gray-900 font-medium mb-7">
+              <h4 className="text-lg dark:text-gray-200 text-gray-900 font-medium mb-7">
                 Contact
               </h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
                   <a
                     href="https://www.facebook.com/solaimansiam.me"
-                    className="text-gray-600 hover:text-[#FF7F32] cursor-pointer"
+                    className="text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer"
                   >
                     Facebook
                   </a>
@@ -122,7 +124,7 @@ function Footer() {
                 <li className="mb-6">
                   <a
                     href="https://www.linkedin.com/in/solaimansiam/"
-                    className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer"
+                    className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer"
                   >
                     Linkedin
                   </a>
@@ -130,7 +132,7 @@ function Footer() {
                 <li className="mb-6">
                   <a
                     href="https://twitter.com/solaimansiam"
-                    className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer"
+                    className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer"
                   >
                     Twitter
                   </a>
@@ -138,7 +140,7 @@ function Footer() {
                 <li>
                   <a
                     href="https://www.instagram.com/solaiman_siam/"
-                    className=" text-gray-600 hover:text-[#FF7F32] cursor-pointer"
+                    className=" text-gray-600 hover:text-[#FF7F32] dark:text-gray-300 cursor-pointer"
                   >
                     Instagram
                   </a>
@@ -149,7 +151,7 @@ function Footer() {
           {/* <!--Grid--> */}
           <div className="py-7 border-t border-gray-200">
             <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
-              <span className="text-sm text-gray-500 ">
+              <span className="text-sm text-gray-500 dark:text-gray-300 ">
                 ©<a href="https://pagedone.io/">Alternify</a> 2024, All rights
                 reserved.
               </span>

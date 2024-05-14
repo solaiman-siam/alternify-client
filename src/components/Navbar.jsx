@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { Avatar } from "flowbite-react";
 import { Dropdown } from "flowbite-react";
+import axios from "axios";
 function Navbar() {
   const { user, logoutUser } = useAuth();
   const [darkMode, setDarkMode] = useState(false);
@@ -23,6 +24,13 @@ function Navbar() {
   const handleSignOut = () => {
     logoutUser()
       .then(() => {
+        axios
+          .post(
+            `${import.meta.env.VITE_API_URL}/logout`,
+            { email: user?.email },
+            { withCredentials: true }
+          )
+          .then((res) => console.log(res.data));
         console.log("logout successful");
         localStorage.removeItem("email");
       })
@@ -36,33 +44,33 @@ function Navbar() {
       <div className="flex justify-between lg:px-6  h-full items-center ">
         <Link to="/" className="flex justify-center items-center ">
           <img className="w-[40px]" src={logo} alt="" />
-          <h3 className="lg:text-3xl text-[26px]  dark:text-white font-bold">
+          <h3 className="lg:text-3xl text-[26px]  dark:text-gray-200 font-bold">
             Alternify
           </h3>
         </Link>
         <ul className="lg:flex gap-5 hidden ">
           <NavLink
             to="/"
-            className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+            className="btn btn-sm  bg-white dark:bg-gray-900 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
           >
             Home
           </NavLink>
 
           <NavLink
-            className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+            className="btn btn-sm  bg-white dark:bg-gray-900 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
             to="/queries"
           >
             Queries
           </NavLink>
           <NavLink
             to="/donations"
-            className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+            className="btn btn-sm  bg-white dark:bg-gray-900 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
           >
             Donations
           </NavLink>
           <NavLink
             to="/about-us"
-            className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+            className="btn btn-sm  bg-white dark:bg-gray-900 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
           >
             About Us
           </NavLink>
@@ -70,14 +78,16 @@ function Navbar() {
             <>
               <NavLink
                 to="/my-queries"
-                className="btn btn-sm  bg-white border-none shadow-none hover:text-[#FF7F32]"
+                className="btn btn-sm  bg-white dark:bg-gray-900 dark:text-gray-200  border-none shadow-none hover:text-[#FF7F32]"
               >
                 My Queries
               </NavLink>
 
               <Dropdown
-                label={"Recommendations"}
-                className=""
+                label={
+                  <span className="dark:text-gray-200">Recommendation</span>
+                }
+                color={"red"}
                 arrowIcon={true}
                 inline
               >
@@ -218,7 +228,7 @@ function Navbar() {
             My Queries
           </NavLink>
           <Dropdown
-            label={"Recommendations"}
+            label={<span className="dark:text-gray-200">Recommendation</span>}
             className="font-bold dark:text-white"
             arrowIcon={true}
             inline

@@ -1,9 +1,11 @@
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 function AddQueries() {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
 
   const handleAddQueries = (e) => {
     e.preventDefault();
@@ -30,18 +32,16 @@ function AddQueries() {
       details,
     };
 
-    axios
-      .post(`${import.meta.env.VITE_API_URL}/add-queries`, queriesData)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.insertedId) {
-          Swal.fire({
-            title: "Queries Added Successfully",
-            icon: "success",
-          });
-          e.target.reset();
-        }
-      });
+    axiosSecure.post(`/add-queries`, queriesData).then((res) => {
+      console.log(res.data);
+      if (res.data.insertedId) {
+        Swal.fire({
+          title: "Queries Added Successfully",
+          icon: "success",
+        });
+        e.target.reset();
+      }
+    });
   };
 
   return (

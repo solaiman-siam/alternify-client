@@ -3,12 +3,13 @@ import useAuth from "../hooks/useAuth";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 function Login() {
   const { googleSignIn, user, loginUser } = useAuth();
 
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   // handle login user
@@ -26,7 +27,7 @@ function Login() {
           title: "Login Successful!",
           icon: "success",
         });
-        navigate(location.state || '/')
+        navigate(location.state || "/");
       })
       .catch((err) => {
         console.log(err);
@@ -41,8 +42,18 @@ function Login() {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
+        axios
+          .post(
+            `${import.meta.env.VITE_API_URL}/jwt`,
+            {
+              email: res?.user?.email,
+            },
+            { withCredentials: true }
+          )
+          .then((res) => console.log(res.data));
         console.log(res);
-        navigate(location.state || '/')
+
+        navigate(location.state || "/");
       })
       .catch((err) => {
         console.log(err);
@@ -55,11 +66,13 @@ function Login() {
 
   return (
     <div>
-      <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
-        <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 flex justify-center">
+        <div className="max-w-screen-xl dark:bg-gray-900 m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
             <div className="mt-0 flex flex-col items-center">
-              <h1 className="text-2xl xl:text-3xl font-extrabold">Login</h1>
+              <h1 className="text-2xl xl:text-3xl font-extrabold dark:text-gray-200">
+                Login
+              </h1>
               <div className="w-full flex-1 mt-8">
                 <div className="flex flex-col items-center">
                   <button
@@ -86,19 +99,21 @@ function Login() {
                         />
                       </svg>
                     </div>
-                    <span className="ml-4">Sign Up with Google</span>
+                    <span className="ml-4 dark:text-gray-200">
+                      Sign Up with Google
+                    </span>
                   </button>
                 </div>
 
                 <div className="my-4 border-b text-center">
-                  <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
+                  <div className="leading-none px-2 dark:text-gray-200 dark:bg-gray-900 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                     Or login up with e-mail
                   </div>
                 </div>
 
                 <form
                   onSubmit={handleLoginUser}
-                  className="mx-auto mt-8 max-w-xs"
+                  className="mx-auto mt-8 dark:bg-gray-900 max-w-xs"
                 >
                   <input
                     className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
@@ -147,7 +162,7 @@ function Login() {
                     <span className="ml-3">Login</span>
                   </button>
                 </form>
-                <p className="mt-6 text-xs text-gray-600 text-center">
+                <p className="mt-6 text-xs dark:text-gray-300 text-gray-600 text-center">
                   <span>Don’t you have an account? </span>
                   <Link
                     className="font-medium hover:text-[#FF1C6A]"

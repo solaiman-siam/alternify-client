@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 function RecentQueries() {
+  const axiosSecure = useAxiosSecure();
   const { data: recentQueries = [], isLoading } = useQuery({
     queryKey: ["recent-queries"],
     queryFn: () => getData(),
   });
 
   const getData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/recent-queries`
-    );
+    const { data } = await axiosSecure.get(`/recent-queries`);
     return data;
   };
 
@@ -36,14 +36,14 @@ function RecentQueries() {
   // const recentEight = sortRecentQueries.
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 lg:px-14 px-6 md:px-10 py-20 bg-orange-50">
+    <div className="max-w-7xl mx-auto ">
+      <div className="grid lg:grid-cols-4 dark:bg-gray-900 md:grid-cols-2 grid-cols-1 gap-8 lg:px-14 px-6 md:px-10 py-20 bg-orange-50">
         {sortRecentQueries.slice(0, 8).map((query) => (
           <div
             key={query._id}
             className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"
           >
-            <div className="w-full flex  justify-center items-center">
+            <div className="w-full dark:bg-white flex  justify-center items-center">
               <img className="object-cover w-24  h-40" src={query.image_url} />
             </div>
 

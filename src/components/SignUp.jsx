@@ -81,11 +81,13 @@ function SignUp() {
 
   return (
     <div>
-      <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
-        <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+      <div className="min-h-screen bg-gray-100d dark:bg-gray-900 text-gray-900 flex justify-center">
+        <div className="max-w-screen-xl m-0 dark:bg-gray-900 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
             <div className="mt-0 flex flex-col items-center">
-              <h1 className="text-2xl xl:text-3xl font-extrabold">Sign Up</h1>
+              <h1 className="text-2xl xl:text-3xl font-extrabold dark:text-gray-200">
+                Sign Up
+              </h1>
               <div className="w-full flex-1 mt-8">
                 <div className="flex flex-col items-center">
                   <button
@@ -112,12 +114,14 @@ function SignUp() {
                         />
                       </svg>
                     </div>
-                    <span className="ml-4">Sign Up with Google</span>
+                    <span className="ml-4 dark:text-gray-300">
+                      Sign Up with Google
+                    </span>
                   </button>
                 </div>
 
                 <div className="my-4 border-b text-center">
-                  <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
+                  <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium dark:bg-gray-900 dark:text-gray-300 bg-white transform translate-y-1/2">
                     Or sign up with e-mail
                   </div>
                 </div>
@@ -202,7 +206,7 @@ function SignUp() {
                     <span className="ml-3">Sign Up</span>
                   </button>
                 </form>
-                <p className="mt-6 text-xs text-gray-600 text-center">
+                <p className="mt-6 text-xs dark:text-gray-300 text-gray-600 text-center">
                   <span>Already have an account? </span>
                   <Link
                     className="font-medium hover:text-[#FF1C6A]"

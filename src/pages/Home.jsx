@@ -6,7 +6,7 @@ import WeWorkFor from "../components/WeWorkFor";
 
 function Home() {
   return (
-    <div>
+    <div className="dark:bg-gray-900">
       <Slider></Slider>
       <Banner></Banner>
       <RecentQueries></RecentQueries>

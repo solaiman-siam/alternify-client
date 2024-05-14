@@ -4,9 +4,12 @@ import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import UpdateModal from "../components/UpdateModal";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 function MyQueries() {
+  const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
+
   const email = localStorage.getItem("email");
 
   const {
@@ -21,9 +24,7 @@ function MyQueries() {
   });
 
   const getData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/my-queries?email=${email}`
-    );
+    const { data } = await axiosSecure.get(`/my-queries?email=${email}`);
     return data;
   };
 
@@ -84,8 +85,8 @@ function MyQueries() {
     <div className="max-w-7xl mx-auto">
       {/* add queries banner */}
       <div className="bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')] w-full h-[250px]">
-        <div className="flex justify-center items-center w-ful flex-col h-full">
-          <h3 className="text-3xl font-semibold  pb-6">
+        <div className="flex justify-center items-center w-ful px-6  flex-col h-full">
+          <h3 className="lg:text-3xl dark:text-gray-700 md:text-3xl text-2xl text-center font-semibold  pb-6">
             Be the Voice of Change: Share Your Ethical Finds!
           </h3>
           <Link
@@ -99,30 +100,32 @@ function MyQueries() {
 
       {/* my queries  */}
 
-      <div className="">
-        <div className="bg-[#f3f4f68e] h-16 px-14 items-center flex justify-start">
+      <div className="dark:bg-gray-900">
+        <div className="bg-[#f3f4f68e] dark:bg-gray-700 h-16 px-14 items-center flex justify-start">
           <Link to={"/"} className="text-gray-400 pr-4 hover:text-[#FF8A4C]">
             Home
           </Link>
           <IoIosArrowForward color="#7F8389" />
-          <h4 className="text-gray-900 pl-4">My Queries</h4>
+          <h4 className="text-gray-900 pl-4 dark:text-gray-300">My Queries</h4>
         </div>
-        <h1 className="text-3xl border-b mx-14  mt-12  font-semibold py-8">
+        <h1 className="lg:text-3xl  md:text-3xl text-2xl border-b lg:mx-14 mx-6 md:mx-10   lg:mt-12 md:mt-8 mt-6 dark:text-gray-200  font-semibold md:py-6 py-4 lg:py-8">
           My Products Collection
         </h1>
         {queries < 1 ? (
           <>
-            <div className="flex justify-center py-8">No Data Found</div>
+            <div className="flex justify-center font-bold dark:text-gray-300 py-20">
+              No Data Found
+            </div>
           </>
         ) : (
           <>
-            <div className="grid grid-cols-3 gap-6 my-14 px-14">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 py-14 px-14">
               {sortMyQueries.map((query) => (
                 <div
                   key={query._id}
                   className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
                 >
-                  <div className="w-1/3 bg-cover ">
+                  <div className="w-1/3 bg-cover dark:bg-white ">
                     <img src={query.image_url} alt="" />
                   </div>
 

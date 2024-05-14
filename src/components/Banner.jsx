@@ -9,10 +9,10 @@ function Banner() {
           <h4 className="text-[#FF7F32] lg:text-2xl md:text-2xl text-xl  font-semibold">
             BOYCOTT FOR PEACE
           </h4>
-          <h3 className="lg:text-4xl md:text-3xl text-2xl font-semibold py-4">
+          <h3 className="lg:text-4xl md:text-3xl dark:text-gray-200 text-2xl font-semibold py-4">
             A Path to Ending Suffering
           </h3>
-          <p className="lg:w-6/12 md:w-10/12  text-center">
+          <p className="lg:w-6/12 md:w-10/12 dark:text-gray-300  text-center">
             Dive in, explore, and join the movement towards a world where every
             purchase carries the weight of positive impact. Your choice matters
             – let's make it count.

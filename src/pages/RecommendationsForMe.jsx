@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 function RecommendationsForMe() {
+  const axiosSecure = useAxiosSecure();
   const email = localStorage.getItem("email");
 
   const { data: recommendationForMe = [], isLoading } = useQuery({
@@ -11,8 +13,8 @@ function RecommendationsForMe() {
   });
 
   const getData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/recommendation-for-me?email=${email}`
+    const { data } = await axiosSecure.get(
+      `/recommendation-for-me?email=${email}`
     );
     return data;
   };
@@ -33,9 +35,9 @@ function RecommendationsForMe() {
     );
 
   return (
-    <div>
-      <div className="max-w-7xl mx-auto px-8 pt-5 pb-24">
-        <section className="container px-4 mx-auto py-6">
+    <div className="dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto   px-8 pt-5 md:pb-14 pb-10 ">
+        <section className="container px-4   mx-auto py-6">
           <div className="flex items-center gap-x-3">
             <h2 className="text-lg font-medium text-gray-800 dark:text-white">
               Total Recommendation
@@ -46,7 +48,7 @@ function RecommendationsForMe() {
             </span>
           </div>
 
-          <div className="flex flex-col mt-6">
+          <div className="flex flex-col  mt-6">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                 <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
@@ -121,7 +123,7 @@ function RecommendationsForMe() {
                               </div>
                             </div>
                           </td>
-                          <td className="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                          <td className="px-12 py-4 dark:text-gray-300 text-sm font-medium text-gray-700 whitespace-nowrap">
                             {recommend.recommendation_brand}
                           </td>
                           <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
@@ -147,6 +149,15 @@ function RecommendationsForMe() {
             </div>
           </div>
         </section>
+        {recommendationForMe < 1 ? (
+          <>
+            <div className="flex justify-center py-10">
+              <h3 className="dark:text-gray-300">No Data Found!!</h3>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

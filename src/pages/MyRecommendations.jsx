@@ -1,8 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 function MyRecommendations() {
+  const axiosSecure = useAxiosSecure();
   const email = localStorage.getItem("email");
 
   const queryClient = useQueryClient();
@@ -14,9 +16,7 @@ function MyRecommendations() {
   });
 
   const getData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/my-recommendation?email=${email}`
-    );
+    const { data } = await axiosSecure.get(`/my-recommendation?email=${email}`);
     return data;
   };
 
@@ -78,7 +78,7 @@ function MyRecommendations() {
     );
 
   return (
-    <div className="max-w-7xl mx-auto px-8 pt-5 pb-24">
+    <div className="max-w-7xl dark:bg-gray-900 mx-auto px-8 pt-5 md:pb-14 pb-10 lg:pb-24">
       <section className="container px-4 mx-auto py-6">
         <div className="flex items-center gap-x-3">
           <h2 className="text-lg font-medium text-gray-800 dark:text-white">
@@ -143,6 +143,7 @@ function MyRecommendations() {
                       </th>
                     </tr>
                   </thead>
+
                   <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                     {MyRecommendations.map((recommend) => (
                       <tr key={recommend._id}>
@@ -165,7 +166,7 @@ function MyRecommendations() {
                             </div>
                           </div>
                         </td>
-                        <td className="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                        <td className="px-12 py-4 dark:text-gray-300 text-sm font-medium text-gray-700 whitespace-nowrap">
                           {recommend.recommendation_brand}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
@@ -199,6 +200,15 @@ function MyRecommendations() {
           </div>
         </div>
       </section>
+      {MyRecommendations < 1 ? (
+        <>
+          <div className="flex justify-center py-10">
+            <h3 className="dark:text-gray-300">No Data Found!!</h3>
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

@@ -3,8 +3,10 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 function ProductDetails() {
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const { id } = useParams();
 
@@ -18,9 +20,7 @@ function ProductDetails() {
   });
 
   const getRecommendedQueries = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/recommended-queries/${id}`
-    );
+    const { data } = await axiosSecure.get(`/recommended-queries/${id}`);
     return data;
   };
 
@@ -31,9 +31,7 @@ function ProductDetails() {
   });
 
   const getData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/product-details/${id}`
-    );
+    const { data } = await axiosSecure.get(`/product-details/${id}`);
     return data;
   };
 
@@ -101,16 +99,16 @@ function ProductDetails() {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 max-w-7xl mx-auto px-14">
-        <div className="max-w-2xl px-12 overflow-hidden h-fit my-10 bg-white rounded-lg  dark:bg-gray-800">
-          <div className="flex justify-center relative">
-            <span className="absolute right-0 font-bold w-5 h-5 flex justify-center items-center text-white rounded-full bg-orange-400">
+      <div className="grid lg:grid-cols-2 md:grid-cols-1 dark:bg-gray-900 grid-cols-1 max-w-7xl mx-auto lg:px-14 px-6 md:px-10">
+        <div className="max-w-2xl   overflow-hidden h-fit my-10 bg-white rounded-lg  dark:bg-gray-800">
+          <div className="flex justify-center dark:bg-white relative">
+            <span className="absolute right-4 top-4 font-bold w-5 h-5 flex justify-center items-center text-white rounded-full bg-orange-400">
               {product.recommendation_count}
             </span>
             <img className="object-cover w-40  h-40" src={product.image_url} />
           </div>
 
-          <div className="p-6">
+          <div className="lg:p-6 p-0 md:p-4 lg:px-14 md:px-10 px-6">
             <div>
               <span className="text-xs font-medium text-[#FF8A4C] uppercase dark:text-blue-400">
                 {product.query_title}
@@ -153,19 +151,19 @@ function ProductDetails() {
         </div>
 
         {/* form */}
-        <div className="bg-white h-fit rounded-md mt-6  relative m-2">
-          <div className="flex items-start justify-between  p-5 pt-2   rounded-t">
-            <h4 className="text-2xl font-medium border-b pb-5 w-full">
+        <div className="bg-white h-fit rounded-md mt-6 dark:bg-gray-900 relative m-2">
+          <div className="flex items-start justify-between md:p-4  lg:p-5 pt-2   rounded-t">
+            <h4 className="text-2xl dark:text-gray-200 font-medium border-b pb-5 w-full">
               Add Alternative Products
             </h4>
           </div>
-          <div className="p-6 pt-0 space-y-6 h-fit">
+          <div className="lg:p-6 p-0 md:p-4 pt-0 space-y-6 h-fit">
             <form onSubmit={handleRecommendation}>
               <div className="grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="product_name"
-                    className="text-sm font-medium text-gray-900 block mb-2"
+                    className="text-sm dark:text-gray-200 font-medium text-gray-900 block mb-2"
                   >
                     Product Name
                   </label>
@@ -181,7 +179,7 @@ function ProductDetails() {
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="query_title"
-                    className="text-sm font-medium text-gray-900 block mb-2"
+                    className="text-sm font-medium dark:text-gray-200 text-gray-900 block mb-2"
                   >
                     Query Title
                   </label>
@@ -197,7 +195,7 @@ function ProductDetails() {
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="brand"
-                    className="text-sm font-medium text-gray-900 block mb-2"
+                    className="text-sm font-medium dark:text-gray-200 text-gray-900 block mb-2"
                   >
                     Brand
                   </label>
@@ -213,7 +211,7 @@ function ProductDetails() {
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="image_url"
-                    className="text-sm font-medium text-gray-900 block mb-2"
+                    className="text-sm font-medium dark:text-gray-200 text-gray-900 block mb-2"
                   >
                     Product Image URL
                   </label>
@@ -229,7 +227,7 @@ function ProductDetails() {
                 <div className="col-span-full">
                   <label
                     htmlFor="boycotting_reasons_details"
-                    className="text-sm font-medium text-gray-900 block mb-2"
+                    className="text-sm font-medium dark:text-gray-200 text-gray-900 block mb-2"
                   >
                     Recommendation Reason
                   </label>
@@ -258,15 +256,17 @@ function ProductDetails() {
 
       {/* comment or recommendations */}
       <div className="">
-        <h3 className="text-3xl font-semibold mx-14 border-b   pb-6">
+        <h3 className="lg:text-3xl dark:bg-gray-900  text-2xl md:text-3xl font-semibold px-6 md:px-10 lg:px-14 border-b dark:text-gray-200   pb-6">
           All Recommendation Here
         </h3>
         <div>
-          <div className="grid grid-cols-3 gap-6 my-14 px-14">
+          <div className="grid grid-cols-3 gap-6 dark:bg-gray-900 py-14 px-14">
             {allRecommendation < 1 ? (
               <>
                 <div className="flex col-span-3 justify-center py-8">
-                  <h1 className="text-center ">No Data Found</h1>
+                  <h1 className="text-center dark:text-gray-200 ">
+                    No Data Found
+                  </h1>
                 </div>
               </>
             ) : (
