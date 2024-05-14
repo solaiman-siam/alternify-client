@@ -7,25 +7,30 @@ const axiosSecure = axios.create({
   withCredentials: true,
 });
 
-function useAxiosSecure() {
-  const navigate = useNavigate();
+const useAxiosSecure = () => {
   const { logoutUser } = useAuth();
+  const navigate = useNavigate();
+  // interceptor
+
+  //   Response Interceptor
   axiosSecure.interceptors.response.use(
     (res) => {
       return res;
     },
-    async (err) => {
-      console.log("error from axios inte", err.response);
-      if (err.response.status === 401 || err.response.status === 403) {
-        console.log("unauthorized people");
+    async (error) => {
+      console.log("Error from axios interceptor", error.response);
+      if (error.response.status === 401 || error.response.status === 403) {
         await logoutUser();
         navigate("/login");
       }
-      return Promise.reject(err);
+      return Promise.reject(error);
     }
   );
 
+  //   Request Interceptor
+  //   axios.interceptors.request
+
   return axiosSecure;
-}
+};
 
 export default useAxiosSecure;

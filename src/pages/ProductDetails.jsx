@@ -276,7 +276,7 @@ function ProductDetails() {
                     key={query._id}
                     className="flex max-w-md overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
                   >
-                    <div className="w-1/3 bg-cover ">
+                    <div className="w-1/3 bg-cover dark:bg-white ">
                       <img src={query.recommendation_image} alt="" />
                     </div>
 

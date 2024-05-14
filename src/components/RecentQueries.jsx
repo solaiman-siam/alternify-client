@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-
-import useAxiosSecure from "../hooks/useAxiosSecure";
+import axios from "axios";
 
 function RecentQueries() {
-  const axiosSecure = useAxiosSecure();
   const { data: recentQueries = [], isLoading } = useQuery({
     queryKey: ["recent-queries"],
     queryFn: () => getData(),
   });
 
   const getData = async () => {
-    const { data } = await axiosSecure.get(`/recent-queries`);
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API_URL}/recent-queries`
+    );
     return data;
   };
 

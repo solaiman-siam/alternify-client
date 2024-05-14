@@ -1,28 +1,31 @@
-# Licarie
+# Alternify
 
 Live site:
 
-- <a href="https://licary-20f82.web.app">Licarie</a>
+- <a href="https://alternify-live-server.vercel.app">Alternify</a>
 
-# Ceramics & Pottery
+# Alternative Product Information System
 
 # Key Feature
 
-- <h4>Category Based UI </h4>
-  <p>Navigate effortlessly through our collection as you explore distinct categories such as Clay-made Pottery, Stoneware, Porcelain, Terra Cotta, Ceramics & Architectural, and Home Decor Pottery. Each category is thoughtfully curated to showcase the unique characteristics and craftsmanship of the pottery pieces it encompasses.
-  Whether you're searching for functional dinnerware to elevate your table setting, decorative accents to adorn your living space, or artisanal creations that inspire conversation, our Category Based UI makes it easy to browse, discover, and shop for pottery that speaks to your style and preferences.</p>
-- <h4>Best Ceramic & Pottery Collection</h4>
-  <p>Experience the epitome of ceramic artistry with our meticulously curated Best Ceramic & Pottery Collection, a showcase of exquisite craftsmanship and timeless beauty. Handpicked by our team of experts, this exclusive collection represents the pinnacle of ceramic and pottery artistry, featuring pieces that captivate the senses and elevate the everyday.
+- <h4>User Query Submission </h4>
+    <p>Users can fill out a submission form where they provide comprehensive details about the product or company they wish to boycott.
+  Information required may include the product name, brand/company name, country of origin (Israel), reasons for the boycott (e.g., human rights violations, illegal settlements), and any supporting evidence or sources.
+  Users may also be encouraged to provide alternative products or brands that align with ethical standards.</p>
+- <h4>User Management</h4>
+    <p>Upon registering or logging in, users gain access to a dashboard where they can view and manage their submissions.
+  Options include editing existing submissions to add more information or update details, deleting submissions if they're no longer relevant, and receiving notifications on any actions taken on their submissions (e.g., recommendations, comments).</p>
 
-  Indulge in a sensory journey through our carefully selected selection, where each piece tells a story of passion, skill, and creativity. From delicate porcelain masterpieces adorned with intricate patterns to rugged stoneware vessels exuding rustic charm, our collection celebrates the diversity and versatility of ceramic art.</p>
+- <h4>Recommendation System</h4>
+    <p>Users can browse through the submitted queries or products and endorse those they support.
+  Each recommendation can include a short comment explaining why the user endorses the boycott or finds the submission valuable.
+  Recommendations contribute to a rating system that highlights the most supported queries or products, helping other users prioritize their actions.</p>
 
-- <h4>Easy to Add Product</h4>
-  <p>Streamline your selling experience and showcase your pottery creations effortlessly with our Easy to Add Product feature. Designed with simplicity and convenience in mind, this intuitive tool empowers artists and crafters to add their products to our platform with ease, allowing them to reach a wider audience and share their talents with the world.
+- <h4>Managing Recommendations</h4>
+      <p>Users can modify or delete their comments associated with queries or recommendations.
+  This allows users to refine their contributions over time or remove outdated information.</p>
 
-  With just a few simple steps, you can upload photos of your pottery pieces, write compelling descriptions, set pricing details, and categorize your creations to ensure they're easily discoverable by interested buyers. Our user-friendly interface guides you through the process, providing helpful prompts and tips along the way to make listing your products a breeze.</p>
-
-- <h4>Customer Reviews</h4>
-  <p>At the heart of our commitment to excellence is the feedback from our esteemed clients. Our customer reviews section showcases the firsthand experiences of those who have entrusted us with their ceramics and pottery needs. Their testimonials not only reflect our dedication to unparalleled service but also offer prospective clients valuable insights into the quality and reliability of our offerings.</p>
-
-- <h4>Protected User Info</h4>
-  <p>Our commitment to protecting your privacy extends beyond just technical safeguards. We also provide clear and transparent information about our data handling practices, empowering you to make informed decisions about how your information is used and shared. Whether you're creating an account, making a purchase, or engaging with our community features, you can trust that your privacy is our top priority.</p>
+- <h4>Donation Channels</h4>
+      <p>Integration with various donation channels allows users to support causes related to alternative products or ethical consumption.
+  Users can choose from different channels such as direct donations to relevant organizations, crowdfunding campaigns supporting sustainable initiatives, or partnerships with NGOs promoting responsible consumerism.
+  Transparent reporting on donation channels ensures users can track the impact of their contributions and make informed decisions about where to allocate their funds.</p>

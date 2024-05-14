@@ -40,7 +40,7 @@ function Navbar() {
   };
 
   return (
-    <div className="w-full relative max-w-7xl px-4 dark:bg-gray-900 mx-auto  h-20  ">
+    <div className="w-full relative max-w-7xl px-4 dark:bg-gray-800 mx-auto  h-20  ">
       <div className="flex justify-between lg:px-6  h-full items-center ">
         <Link to="/" className="flex justify-center items-center ">
           <img className="w-[40px]" src={logo} alt="" />
@@ -51,26 +51,26 @@ function Navbar() {
         <ul className="lg:flex gap-5 hidden ">
           <NavLink
             to="/"
-            className="btn btn-sm  bg-white dark:bg-gray-900 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            className="btn btn-sm  bg-white dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
           >
             Home
           </NavLink>
 
           <NavLink
-            className="btn btn-sm  bg-white dark:bg-gray-900 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            className="btn btn-sm  bg-white dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
             to="/queries"
           >
             Queries
           </NavLink>
           <NavLink
             to="/donations"
-            className="btn btn-sm  bg-white dark:bg-gray-900 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            className="btn btn-sm  bg-white dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
           >
             Donations
           </NavLink>
           <NavLink
             to="/about-us"
-            className="btn btn-sm  bg-white dark:bg-gray-900 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            className="btn btn-sm  bg-white dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
           >
             About Us
           </NavLink>
@@ -78,7 +78,7 @@ function Navbar() {
             <>
               <NavLink
                 to="/my-queries"
-                className="btn btn-sm  bg-white dark:bg-gray-900 dark:text-gray-200  border-none shadow-none hover:text-[#FF7F32]"
+                className="btn btn-sm  bg-white dark:bg-gray-800 dark:text-gray-200  border-none shadow-none hover:text-[#FF7F32]"
               >
                 My Queries
               </NavLink>

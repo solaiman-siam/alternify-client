@@ -244,7 +244,7 @@ function Queries() {
       </div>
       {/* pagination button */}
 
-      <div className="flex bg-[#F3F4F6] justify-center pb-20">
+      <div className="flex bg-[#F3F4F6] dark:bg-gray-900 justify-center pb-20">
         <button
           onClick={handlePrevious}
           className="px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-orange-400 dark:hover:bg-orange-400 border-2 hover:text-white text-gray-900 dark:hover:text-gray-200"
@@ -268,7 +268,9 @@ function Queries() {
             onClick={() => handleCurrentPages(element)}
             key={idx}
             className={`hidden ${
-              currentPage == element ? "bg-orange-400 text-white" : ""
+              currentPage == element
+                ? "bg-orange-400 text-white dark:text-black dark:bg-white"
+                : ""
             } px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-orange-400 dark:hover:bg-orange-400 hover:text-white text-gray-900 dark:hover:text-gray-200`}
           >
             {element}

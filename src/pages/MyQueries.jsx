@@ -4,12 +4,9 @@ import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import UpdateModal from "../components/UpdateModal";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../hooks/useAxiosSecure";
 
 function MyQueries() {
-  const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
-
   const email = localStorage.getItem("email");
 
   const {
@@ -24,7 +21,10 @@ function MyQueries() {
   });
 
   const getData = async () => {
-    const { data } = await axiosSecure.get(`/my-queries?email=${email}`);
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API_URL}/my-queries?email=${email}`,
+      { withCredentials: true }
+    );
     return data;
   };
 
