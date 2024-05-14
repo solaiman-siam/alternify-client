@@ -2,7 +2,7 @@
 
 Live site:
 
-- <a href="https://alternify-live-server.vercel.app">Alternify</a>
+- <a href="https://alternify-15eba.web.app">Alternify</a>
 
 # Alternative Product Information System
 
