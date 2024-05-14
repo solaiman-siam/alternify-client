@@ -22,6 +22,18 @@ function Login() {
 
     loginUser(email, password)
       .then((res) => {
+        // jwt token generator
+        axios
+          .post(
+            `${import.meta.env.VITE_API_URL}/jwt`,
+            {
+              email: res?.user?.email,
+            },
+            { withCredentials: true }
+          )
+          .then((res) => console.log(res.data));
+        console.log(res);
+
         console.log(res.user);
         Swal.fire({
           title: "Login Successful!",
@@ -42,6 +54,7 @@ function Login() {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
+        // jwt token generator
         axios
           .post(
             `${import.meta.env.VITE_API_URL}/jwt`,

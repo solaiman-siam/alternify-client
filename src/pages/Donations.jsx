@@ -10,7 +10,7 @@ function Donations() {
           <h3 className="text-[#FF7F32] font-semibold uppercase text-xl md:text-xl  lg:text-2xl pb-4">
             ETHICAL CONSUMPTION GUIDE
           </h3>
-          <h1 className="font-semibold md:text-4xl dark:text-gray-700 text-3xl lg:text-6xl  pb-6">
+          <h1 className="font-semibold md:text-4xl text-3xl dark:text-gray-700  lg:text-6xl  pb-6">
             Conscious Consumer Network
           </h1>
           <p className="text-[#57534E] dark:text-gray-500 md:text-lg text-base lg:text-xl md:w-11/12 w-10/12 lg:w-9/12">
@@ -22,11 +22,11 @@ function Donations() {
           </p>
         </div>
       </div>
-      <div className="bg-white py-32 pl-52">
+      <div className="bg-white dark:bg-gray-900 py-32 pl-52">
         <h3 className="text-xl font-semibold text-orange-400">
           URGENT CALL TO ACTION
         </h3>
-        <h2 className="text-4xl font-medium pt-3 pb-4">
+        <h2 className="text-4xl dark:text-gray-300 font-medium pt-3 pb-4">
           Aid for Gaza in Crisis
         </h2>
         <p className=" text-gray-500 w-9/12">
@@ -39,7 +39,7 @@ function Donations() {
           the water that was available was largely undrinkable, with 97% deemed
           unsafe.
         </p>
-        <h3 className="text-2xl font-medium pt-5 pb-3">
+        <h3 className="text-2xl dark:text-gray-300 font-medium pt-5 pb-3">
           Power Outages Paralyze Hospitals
         </h3>
         <p className=" text-gray-500 w-9/12 pb-4">
@@ -50,7 +50,7 @@ function Donations() {
           casualties, have resorted to placing the deceased upon their cold
           floors.
         </p>
-        <h3 className="text-2xl font-medium pt-5 pb-3">
+        <h3 className="text-2xl dark:text-gray-300 font-medium pt-5 pb-3">
           Water Crisis and Stricken Infrastructure
         </h3>
         <p className=" text-gray-500 w-9/12 pb-4">
@@ -61,7 +61,7 @@ function Donations() {
           schools operated by the UN—yet even these havens are no longer secure
           nor equipped, as even UN shelters have depleted their water reserves.
         </p>
-        <h3 className="text-2xl font-medium pt-5 pb-3">
+        <h3 className="text-2xl dark:text-gray-300 font-medium pt-5 pb-3">
           The Mass Displacement of Gaza's Residents
         </h3>
         <p className=" text-gray-500 w-9/12 pb-4">
@@ -73,7 +73,7 @@ function Donations() {
           facing a battle of their own, with fuel shortages hampering their
           life-saving missions to reach and treat the wounded.
         </p>
-        <h3 className="text-2xl font-medium pt-5 pb-3">
+        <h3 className="text-2xl dark:text-gray-300 font-medium pt-5 pb-3">
           How Your Donation Can Help
         </h3>
         <p className=" text-gray-500 w-9/12">
@@ -90,7 +90,7 @@ function Donations() {
           <h3 className="text-2xl font-medium text-orange-400 pb-4">
             MAKING A DIFFERENCE
           </h3>
-          <h2 className="text-5xl font-semibold pb-5">
+          <h2 className="text-5xl dark:text-gray-700 font-semibold pb-5">
             Our Recommended Charity
           </h2>
           <p className="text-gray-500 text-center w-7/12 text-lg">
@@ -101,8 +101,10 @@ function Donations() {
         </div>
         <div className="grid max-w-7xl mx-auto lg:px-14 md:px-10 px-6 grid-cols-3 justify-center items-center gap-10">
           {/* 1 */}
-          <div className="bg-white rounded-md p-10">
-            <h3 className="text-3xl font-medium pb-4">Save the children</h3>
+          <div className="bg-white dark:bg-gray-900 rounded-md p-10">
+            <h3 className="text-3xl font-medium pb-4 dark:text-gray-300">
+              Save the children
+            </h3>
             <h4 className="text-[#059669] pb-2  font-medium w-10/12">
               US Dollars - Children in Gaza and the West Bank
             </h4>
@@ -115,15 +117,17 @@ function Donations() {
             <a
               target="_blank"
               href="https://www.savethechildren.org/us/where-we-work/west-bank-gaza"
-              className="flex w-fit gap-2 items-center bg-[#059669] px-4 py-2 rounded-md justify-center"
+              className="flex hover:bg-opacity-60 transtion-all duration-200  w-fit gap-2 items-center bg-[#059669] px-4 py-2 rounded-md justify-center"
             >
               <span className="font-semibold  text-white ">Donate Now </span>
               <BiDonateHeart size={18} color="white" />
             </a>
           </div>
           {/* 2 */}
-          <div className="bg-white h-fit rounded-md p-10">
-            <h3 className="text-3xl font-medium pb-4">Human Appeal</h3>
+          <div className="bg-white dark:bg-gray-900 h-fit rounded-md p-10">
+            <h3 className="text-3xl dark:text-gray-300  font-medium pb-4">
+              Human Appeal
+            </h3>
             <h4 className="text-[#059669] pb-2  font-medium w-10/12">
               UK Pound - Gaza Emergency Donatio
             </h4>
@@ -134,15 +138,15 @@ function Donations() {
             <a
               target="_blank"
               href="https://humanappeal.org.uk/appeals/gaza-emergency-appeal"
-              className="flex gap-2 items-center bg-[#059669] px-4 py-2 rounded-md justify-center"
+              className="flex hover:bg-opacity-60 transtion-all duration-200  w-fit gap-2 items-center bg-[#059669] px-4 py-2 rounded-md justify-center"
             >
               <span className="font-semibold  text-white ">Donate Now </span>
               <BiDonateHeart size={18} color="white" />
             </a>
           </div>
           {/* 3 */}
-          <div className="bg-white rounded-md h-fit p-10">
-            <h3 className="text-3xl font-medium pb-4">
+          <div className="bg-white dark:bg-gray-900 rounded-md h-fit p-10">
+            <h3 className="text-3xl dark:text-gray-300  font-medium pb-4">
               Medical Aid for Palestine
             </h3>
             <h4 className="text-[#059669] pb-2  font-medium w-10/12">
@@ -155,15 +159,17 @@ function Donations() {
             <a
               href="https://www.map.org.uk/donate/donation-details/484"
               target="_blank"
-              className="flex gap-2 items-center bg-[#059669] px-4 py-2 rounded-md justify-center"
+              className="flex hover:bg-opacity-60 transtion-all duration-200  w-fit gap-2 items-center bg-[#059669] px-4 py-2 rounded-md justify-center"
             >
               <span className="font-semibold  text-white ">Donate Now </span>
               <BiDonateHeart size={18} color="white" />
             </a>
           </div>
           {/* 4 */}
-          <div className="bg-white rounded-md p-10">
-            <h3 className="text-3xl font-medium pb-4">UN Population Fund</h3>
+          <div className="bg-white dark:bg-gray-900 rounded-md p-10">
+            <h3 className="text-3xl dark:text-gray-300  font-medium pb-4">
+              UN Population Fund
+            </h3>
             <h4 className="text-[#059669] pb-2  font-medium w-10/12">
               Global - Help mothers and newborn in Gaza
             </h4>
@@ -174,15 +180,17 @@ function Donations() {
             <a
               href="https://www.unfpa.org/donate/Gaza/1?form=GazaAppeal"
               target="_blank"
-              className="flex gap-2 items-center bg-[#059669] px-4 py-2 rounded-md justify-center"
+              className="flex hover:bg-opacity-60 transtion-all duration-200  w-fit gap-2 items-center bg-[#059669] px-4 py-2 rounded-md justify-center"
             >
               <span className="font-semibold  text-white ">Donate Now </span>
               <BiDonateHeart size={18} color="white" />
             </a>
           </div>
           {/* 5 */}
-          <div className="bg-white rounded-md p-10">
-            <h3 className="text-3xl font-medium pb-4">Danish Muslim Aid</h3>
+          <div className="bg-white dark:bg-gray-900 rounded-md p-10">
+            <h3 className="text-3xl dark:text-gray-300  font-medium pb-4">
+              Danish Muslim Aid
+            </h3>
             <h4 className="text-[#059669] pb-2  font-medium w-10/12">
               Danish Kroner - Emergency Donation for Gaza
             </h4>
@@ -194,14 +202,16 @@ function Donations() {
             <a
               href="https://dmaid.dk/support-country/palaestina/"
               target="_blank"
-              className="flex gap-2 items-center bg-[#059669] px-4 py-2 rounded-md justify-center"
+              className="flex hover:bg-opacity-60 transtion-all duration-200  gap-2 w-fit items-center bg-[#059669] px-4 py-2 rounded-md justify-center"
             >
               <span className="font-semibold  text-white ">Donate Now </span>
               <BiDonateHeart size={18} color="white" />
             </a>
           </div>
-          <div className="bg-white rounded-md p-10">
-            <h3 className="text-3xl font-medium pb-4">Boycott-Israel.org</h3>
+          <div className="bg-white dark:bg-gray-900 rounded-md p-10">
+            <h3 className="text-3xl dark:text-gray-300  font-medium pb-4">
+              Boycott-Israel.org
+            </h3>
             <h4 className="text-[#059669] pb-2  font-medium w-10/12">
               Global - Non profit upkeep of Boycott-Israel.org
             </h4>
@@ -212,7 +222,7 @@ function Donations() {
             <a
               target="_blank"
               disabled
-              className="flex gap-2 w-fit items-center opacity-15 bg-[#059669] px-4 py-2 rounded-md justify-center"
+              className="flex hover:bg-opacity-60 transtion-all duration-200  gap-2 w-fit items-center opacity-15 bg-[#059669] px-4 py-2 rounded-md justify-center"
             >
               <span className="font-semibold  text-white ">Donate Now </span>
               <BiDonateHeart size={18} color="white" />
@@ -221,11 +231,11 @@ function Donations() {
           {/* 6 */}
         </div>
       </div>
-      <div className="flex w-full justify-center items-center flex-col py-20">
+      <div className="flex w-full justify-center dark:bg-gray-900 items-center flex-col py-20">
         <h4 className="text-[#FF7F32] lg:text-2xl md:text-2xl text-xl  font-semibold">
           BOYCOTT FOR PEACE
         </h4>
-        <h3 className="lg:text-4xl md:text-3xl dark:text-gray-200 text-2xl font-semibold py-4">
+        <h3 className="lg:text-4xl md:text-3xl dark:text-gray-300 text-2xl font-semibold py-4">
           A Path to Ending Suffering
         </h3>
         <p className="lg:w-6/12 md:w-10/12 text-gray-600 dark:text-gray-300  text-center">
@@ -235,7 +245,7 @@ function Donations() {
         </p>
         <Link
           to={"/queries"}
-          className="flex gap-4 items-center mt-8 lg:px-6 md:px-5 px-4  font-semibold text-white rounded-md py-2 md:py-3 lg:py-3 bg-[#FF7F32]"
+          className="flex gap-4 hover:bg-opacity-80 transition duration-200  items-center mt-8 lg:px-6 md:px-5 px-4  font-semibold text-white rounded-md py-2 md:py-3 lg:py-3 bg-[#FF7F32]"
         >
           <button>SEE THE BOYCOTT LIST</button>
           <MdArrowRightAlt size={24} />

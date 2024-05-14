@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import axios from "axios";
 function SignUp() {
   const navigate = useNavigate();
 
@@ -42,6 +43,14 @@ function SignUp() {
 
     try {
       const result = await createUser(email, password);
+      const output = await axios.post(
+        `${import.meta.env.VITE_API_URL}/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(output.data);
       console.log(result);
       await updateUserProfile(name, photo);
       Swal.fire({
@@ -64,6 +73,17 @@ function SignUp() {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
+        console.log(res);
+        // jwt token generator
+        axios
+          .post(
+            `${import.meta.env.VITE_API_URL}/jwt`,
+            {
+              email: res?.user?.email,
+            },
+            { withCredentials: true }
+          )
+          .then((res) => console.log(res.data));
         console.log(res);
         Swal.fire({
           title: "Login Successful!",
