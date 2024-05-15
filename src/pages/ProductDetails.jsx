@@ -38,7 +38,7 @@ function ProductDetails() {
   // sumbit recommend form
   const { mutate, refetch } = useMutation({
     mutationFn: async (recommendationData) => {
-      const { data } = await axios.post(
+      const { data } = await axiosSecure.post(
         `${import.meta.env.VITE_API_URL}/add-recommendation`,
         recommendationData
       );
