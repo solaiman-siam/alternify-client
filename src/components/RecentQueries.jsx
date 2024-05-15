@@ -35,6 +35,14 @@ function RecentQueries() {
 
   return (
     <div className="max-w-7xl mx-auto ">
+      <div className="bg-[#FFF8F1] pt-10 ">
+        <h2 className="text-orange-400 text-2xl px-8 md:px-10   font-medium pb-3   lg:pl-14">
+          Conscientious Choices
+        </h2>
+        <h1 className="lg:text-4xl md:text-3xl mx:mx-10 mx-8 text-3xl border-b font-semibold pb-6 lg:mx-14">
+          Recent Collective Queries
+        </h1>
+      </div>
       <div className="grid lg:grid-cols-4 dark:bg-gray-900 md:grid-cols-2 grid-cols-1 gap-8 lg:px-14 px-6 md:px-10 py-20 bg-orange-50">
         {sortRecentQueries.slice(0, 8).map((query) => (
           <div
