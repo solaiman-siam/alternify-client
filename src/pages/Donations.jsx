@@ -6,14 +6,14 @@ function Donations() {
   return (
     <div className="">
       <div className="bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')] w-full h-[450px]">
-        <div className=" max-w-7xl mx-auto px-6 lg:pl-52 w-full h-full flex justify-center flex-col items-start">
+        <div className=" max-w-7xl mx-auto px-6 md:px-12 lg:pl-52 w-full h-full flex justify-center flex-col items-start">
           <h3 className="text-[#FF7F32] font-semibold uppercase text-xl md:text-xl  lg:text-2xl pb-4">
             ETHICAL CONSUMPTION GUIDE
           </h3>
           <h1 className="font-semibold md:text-4xl text-3xl dark:text-gray-700  lg:text-6xl  pb-6">
             Conscious Consumer Network
           </h1>
-          <p className="text-[#57534E] dark:text-gray-500 md:text-lg text-base lg:text-xl md:w-11/12 w-10/12 lg:w-9/12">
+          <p className="text-[#57534E] dark:text-gray-500 md:text-lg text-base lg:text-xl  md:w-10/12 lg:md:w-10/12 w-11/12 lg:w-9/12">
             We believe in the power of consumer choices to drive positive
             change. Our platform provides a space for users to share and
             discover alternatives to products from regions with troubling
@@ -22,14 +22,14 @@ function Donations() {
           </p>
         </div>
       </div>
-      <div className="bg-white dark:bg-gray-900 py-32 pl-52">
+      <div className="bg-white dark:bg-gray-900 md:py-24 py-12 lg:py-32 px-6 md:px-12 lg:pl-52">
         <h3 className="text-xl font-semibold text-orange-400">
           URGENT CALL TO ACTION
         </h3>
-        <h2 className="text-4xl dark:text-gray-300 font-medium pt-3 pb-4">
+        <h2 className="lg:text-4xl md:text-3xl text-3xl dark:text-gray-300 font-medium pt-3 pb-4">
           Aid for Gaza in Crisis
         </h2>
-        <p className=" text-gray-500 w-9/12">
+        <p className=" text-gray-500 md:w-10/12 w-11/12 lg:md:w-10/12 w-11/12 lg:w-9/12">
           The destruction in Gaza is vast and deep, with entire neighborhoods
           reduced to rubble. The severing of the electricity supply has thrust
           the healthcare system into turmoil, with hospitals, already teeming
@@ -42,7 +42,7 @@ function Donations() {
         <h3 className="text-2xl dark:text-gray-300 font-medium pt-5 pb-3">
           Power Outages Paralyze Hospitals
         </h3>
-        <p className=" text-gray-500 w-9/12 pb-4">
+        <p className=" text-gray-500 md:w-10/12 w-11/12 lg:w-9/12 pb-4">
           The assaults have not spared even the sanctuaries of healing and hope;
           hospitals and ambulances have come under attack, resulting in the
           tragic loss of nine healthcare professionals. Educational institutions
@@ -53,7 +53,7 @@ function Donations() {
         <h3 className="text-2xl dark:text-gray-300 font-medium pt-5 pb-3">
           Water Crisis and Stricken Infrastructure
         </h3>
-        <p className=" text-gray-500 w-9/12 pb-4">
+        <p className=" text-gray-500 md:w-10/12 w-11/12 lg:w-9/12 pb-4">
           The human toll is staggering, with over 1.7 million people uprooted
           from their homes, desperately seeking safety in the face of relentless
           bombing. They head south, looking for shelter in the homes of
@@ -64,7 +64,7 @@ function Donations() {
         <h3 className="text-2xl dark:text-gray-300 font-medium pt-5 pb-3">
           The Mass Displacement of Gaza's Residents
         </h3>
-        <p className=" text-gray-500 w-9/12 pb-4">
+        <p className=" text-gray-500 md:w-10/12 w-11/12 lg:w-9/12 pb-4">
           Amid this chaos, Palestinian families, stripped of their homes,
           possessions, and sustenance, find themselves in dire need of aid.
           Patients, crammed into hospitals that are short on supplies and
@@ -76,7 +76,7 @@ function Donations() {
         <h3 className="text-2xl dark:text-gray-300 font-medium pt-5 pb-3">
           How Your Donation Can Help
         </h3>
-        <p className=" text-gray-500 w-9/12">
+        <p className=" text-gray-500 md:w-10/12 w-11/12 lg:w-9/12">
           In this moment of crisis, every second is critical, and every
           donation, no matter its size, has the potential to make a monumental
           impact. Assistance is urgently needed—not tomorrow, not in a few
@@ -85,21 +85,21 @@ function Donations() {
           balance.
         </p>
       </div>
-      <div className="bg-[url('https://i.postimg.cc/ZYf5PG3T/topographic-large-grey-1.webp')] h-[1200px] w-full bg-cover bg-center py-24">
+      <div className="bg-[url('https://i.postimg.cc/ZYf5PG3T/topographic-large-grey-1.webp')] lg:h-[1200px] h-[2650px] md:h-[1600px] w-full bg-cover bg-center md:py-14 py-10 lg:py-24">
         <div className="flex flex-col items-center pb-14">
-          <h3 className="text-2xl font-medium text-orange-400 pb-4">
+          <h3 className="text-2xl   font-medium text-orange-400 pb-4">
             MAKING A DIFFERENCE
           </h3>
-          <h2 className="text-5xl dark:text-gray-700 font-semibold pb-5">
+          <h2 className="lg:text-5xl md:text-4xl text-3xl dark:text-gray-700 font-semibold pb-5">
             Our Recommended Charity
           </h2>
-          <p className="text-gray-500 text-center w-7/12 text-lg">
+          <p className="text-gray-500 text-center md:w-10/12 w-11/12 lg:w-7/12 text-lg">
             Please note, this is not an official partnership but an endorsement
             based on shared values. You can donate directly by visiting their
             website, ensuring your support reaches them without intermediation.
           </p>
         </div>
-        <div className="grid max-w-7xl mx-auto lg:px-14 md:px-10 px-6 grid-cols-3 justify-center items-center gap-10">
+        <div className="grid max-w-7xl mx-auto lg:px-14 md:px-10 px-6 md:grid-cols-2 grid-cols-1 lg:grid-cols-3 justify-center items-center gap-10">
           {/* 1 */}
           <div className="bg-white dark:bg-gray-900 rounded-md p-10">
             <h3 className="text-3xl font-medium pb-4 dark:text-gray-300">

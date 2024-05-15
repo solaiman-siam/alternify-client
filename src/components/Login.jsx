@@ -4,9 +4,9 @@ import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
-
+import logo from "../.././public/logo_2.png";
 function Login() {
-  const { googleSignIn, user, loginUser } = useAuth();
+  const { googleSignIn, loginUser } = useAuth();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,7 +18,6 @@ function Login() {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     loginUser(email, password)
       .then((res) => {
@@ -30,11 +29,11 @@ function Login() {
               email: res?.user?.email,
             },
             { withCredentials: true }
-          )
-          .then((res) => console.log(res.data));
-        console.log(res);
+          ).then(res)
+          
+        
 
-        console.log(res.user);
+        
         Swal.fire({
           title: "Login Successful!",
           icon: "success",
@@ -63,8 +62,8 @@ function Login() {
             },
             { withCredentials: true }
           )
-          .then((res) => console.log(res.data));
-        console.log(res);
+          .then((res));
+        
 
         navigate(location.state || "/");
       })
@@ -80,8 +79,8 @@ function Login() {
   return (
     <div>
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 flex justify-center">
-        <div className="max-w-screen-xl dark:bg-gray-900 m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
-          <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+        <div className="max-w-screen-xl m-0 dark:bg-gray-900 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+          <div className="lg:w-1/2 w-full xl:w-5/12 p-6 sm:p-12">
             <div className="mt-0 flex flex-col items-center">
               <h1 className="text-2xl xl:text-3xl font-extrabold dark:text-gray-200">
                 Login
@@ -119,7 +118,7 @@ function Login() {
                 </div>
 
                 <div className="my-4 border-b text-center">
-                  <div className="leading-none px-2 dark:text-gray-200 dark:bg-gray-900 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
+                  <div className="leading-none px-2 dark:text-gray-200 dark:bg-gray-900 inline-block text-sm text-gray-600  tracking-wide font-medium bg-white transform translate-y-1/2">
                     Or login up with e-mail
                   </div>
                 </div>
@@ -187,8 +186,17 @@ function Login() {
               </div>
             </div>
           </div>
-          <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
-            <div className="m-12 xl:m-16 w-full bg-[url('https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg')] bg-contain bg-center bg-no-repeat"></div>
+          <div className="flex-1 bg-indigo-100 bg-[url('https://cdn.pixabay.com/photo/2016/04/18/16/22/gradient-1336854_640.jpg')] bg-cover text-center hidden lg:flex">
+            <div className="m-12 xl:m-16 w-full rounded-md backdrop-blur-sm bg-white/30 bg-contain bg-center bg-no-repeat">
+              <div className="flex flex-col w-full h-full justify-center items-center">
+                <img className="w-20" src={logo} alt="" />
+                <h1 className="text-4xl font-bold py-3">Back to Alternify</h1>
+                <h3 className=" font-semibold text-gray-700 py-2 w-8/12">
+                  Keep track of your contributions and connect with a community
+                  passionate about making a difference. Log in to your account!
+                </h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>

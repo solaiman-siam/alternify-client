@@ -27,8 +27,8 @@ function Slider() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="w-full md:h-[50px] h-[500px] lg:h-[450px] flex justify-center items-center lg:pl-52 bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')]">
-            <div className="px-6 lg:px-0 md:px-6">
+          <div className="w-full md:h-[500px] h-[500px] lg:h-[450px] flex justify-center items-center lg:pl-52 bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')]">
+            <div className="px-6 lg:px-0 md:px-12">
               <h3 className="text-[#FF7F32] font-semibold text-xl md:text-xl  lg:text-2xl pb-4">
                 ETHICAL CONSUMPTION GUIDE
               </h3>
@@ -46,8 +46,8 @@ function Slider() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full  md:h-[50px] h-[500px] lg:h-[450px] flex justify-center items-center lg:pl-52 bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')]">
-            <div className="px-6 lg:px-0 md:px-6">
+          <div className="w-full  md:h-[500px] h-[500px] lg:h-[450px] flex justify-center items-center lg:pl-52 bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')]">
+            <div className="px-6 lg:px-0 md:px-12">
               <h3 className="text-[#FF7F32] font-semibold uppercase text-xl md:text-xl  lg:text-2xl pb-4">
                 ETHICAL CONSUMPTION GUIDE
               </h3>
@@ -64,8 +64,8 @@ function Slider() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full  md:h-[50px] h-[500px] lg:h-[450px] flex justify-center items-center lg:pl-52 bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')]">
-            <div className="px-6 lg:px-0 md:px-6">
+          <div className="w-full  md:h-[500px] h-[500px] lg:h-[450px] flex justify-center items-center lg:pl-52 bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')]">
+            <div className="px-6 lg:px-0 md:px-12">
               <h3 className="text-[#FF7F32] font-semibold uppercase text-xl md:text-xl  lg:text-2xl pb-4">
                 ETHICAL CONSUMPTION GUIDE
               </h3>

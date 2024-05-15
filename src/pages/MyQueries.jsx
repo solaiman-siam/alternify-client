@@ -12,8 +12,6 @@ function MyQueries() {
   const {
     data: queries = [],
     isLoading,
-    isError,
-    error,
     refetch,
   } = useQuery({
     queryKey: ["my-queries"],
@@ -39,7 +37,6 @@ function MyQueries() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["my-queries"] });
 
-      console.log("deleted successfully");
       Swal.fire({
         title: "Deleted!",
         text: "Your file has been deleted.",

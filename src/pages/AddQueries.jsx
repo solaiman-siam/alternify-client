@@ -17,7 +17,6 @@ function AddQueries() {
     const image_url = form.image_url.value;
     const details = form.details.value;
     const current_data_time = new Date(Date.now()).toLocaleString();
-    console.log(product_name, query_title, brand, image_url);
 
     const queriesData = {
       product_name,
@@ -33,7 +32,6 @@ function AddQueries() {
     };
 
     axiosSecure.post(`/add-queries`, queriesData).then((res) => {
-      console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
           title: "Queries Added Successfully",

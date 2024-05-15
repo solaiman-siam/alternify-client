@@ -13,7 +13,6 @@ function Queries() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const numberOfPages = Math.ceil(count / itemsPerPage);
-  console.log(numberOfPages);
 
   const pages = [
     ...Array(numberOfPages)
@@ -49,7 +48,6 @@ function Queries() {
 
   const handleCurrentPages = (page) => {
     setCurrentPage(page);
-    console.log(currentPage);
   };
 
   const handleNext = () => {

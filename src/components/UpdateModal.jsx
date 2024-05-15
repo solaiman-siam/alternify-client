@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Modal } from "flowbite-react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import PropTypes from "prop-types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 function UpdateModal({ query }) {
@@ -33,7 +34,6 @@ function UpdateModal({ query }) {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["my-queries"] });
       // refetch;
-      console.log("updated successfully");
       Swal.fire({
         title: "Updated Successful!",
         icon: "success",
@@ -191,5 +191,7 @@ function UpdateModal({ query }) {
     </>
   );
 }
-
+UpdateModal.propTypes = {
+  query: PropTypes.object
+};
 export default UpdateModal;

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import axios from "axios";
+import logo from "../.././public/logo_2.png";
 function SignUp() {
   const navigate = useNavigate();
 
@@ -27,7 +28,6 @@ function SignUp() {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    console.log(name, email, photo, password);
 
     setErrorAuth("");
     if (!/^(?=.*[a-z])(?=.*[A-Z]).+$/.test(password)) {
@@ -50,8 +50,6 @@ function SignUp() {
         },
         { withCredentials: true }
       );
-      console.log(output.data);
-      console.log(result);
       await updateUserProfile(name, photo);
       Swal.fire({
         title: "Create User Successfully!",
@@ -73,7 +71,6 @@ function SignUp() {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
-        console.log(res);
         // jwt token generator
         axios
           .post(
@@ -83,8 +80,7 @@ function SignUp() {
             },
             { withCredentials: true }
           )
-          .then((res) => console.log(res.data));
-        console.log(res);
+          .then((res) );
         Swal.fire({
           title: "Login Successful!",
           icon: "success",
@@ -101,9 +97,9 @@ function SignUp() {
 
   return (
     <div>
-      <div className="min-h-screen bg-gray-100d dark:bg-gray-900 text-gray-900 flex justify-center">
+      <div className="min-h-screen bg-gray-100   dark:bg-gray-900 text-gray-900 flex justify-center">
         <div className="max-w-screen-xl m-0 dark:bg-gray-900 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
-          <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+          <div className="lg:w-1/2 w-full xl:w-5/12 p-6 sm:p-12">
             <div className="mt-0 flex flex-col items-center">
               <h1 className="text-2xl xl:text-3xl font-extrabold dark:text-gray-200">
                 Sign Up
@@ -148,7 +144,7 @@ function SignUp() {
 
                 <form
                   onSubmit={handleCreateUser}
-                  className="mx-auto mt-8 max-w-xs"
+                  className="mx-auto mt-8 dark:bg-gray-900 max-w-xs"
                 >
                   <input
                     className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
@@ -238,8 +234,19 @@ function SignUp() {
               </div>
             </div>
           </div>
-          <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
-            <div className="m-12 xl:m-16 w-full bg-[url('https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg')] bg-contain bg-center bg-no-repeat"></div>
+          <div className="flex-1 bg-indigo-100 bg-[url('https://cdn.pixabay.com/photo/2016/04/18/16/22/gradient-1336854_640.jpg')] bg-cover text-center hidden lg:flex">
+            <div className="m-12 xl:m-16 w-full backdrop-blur-sm rounded-md bg-white/30 bg-contain bg-center bg-no-repeat">
+              <div className="flex flex-col w-full h-full justify-center items-center">
+                <img className="w-20" src={logo} alt="" />
+                <h1 className="text-4xl font-bold py-3">
+                  Welcome to Alternify
+                </h1>
+                <h3 className=" font-semibold text-gray-700 py-2 w-8/12">
+                  Join the movement for ethical consumerism. Log in and make
+                  your voice heard!
+                </h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>

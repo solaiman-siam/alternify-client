@@ -30,8 +30,8 @@ function Navbar() {
             { email: user?.email },
             { withCredentials: true }
           )
-          .then((res) => console.log(res.data));
-        console.log("logout successful");
+          
+        
         localStorage.removeItem("email");
       })
       .catch((error) => {
@@ -159,7 +159,7 @@ function Navbar() {
             {!user && (
               <Link
                 to={"/login"}
-                className="text-white bg-[#FF7F32] mt-2 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-md  text-sm px-3 py-1.5 text-center  me-2 mb-2"
+                className="text-white lg:flex hidden bg-[#FF7F32] mt-2 hover:bg-gradient-to-br  focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-md  text-sm px-3 py-1.5 text-center  me-2 mb-2"
               >
                 Login
               </Link>
@@ -180,7 +180,7 @@ function Navbar() {
       <div
         className={
           isOpen
-            ? "bg-orange-100 dark:bg-gray-900 left-0 top-0 lg:hidden md:hidden absolute transition-all duration-300 pt-10  h-screen  px-14  z-10 "
+            ? "bg-orange-100 dark:bg-gray-900 left-0 top-0 lg:hidden  absolute transition-all duration-300 pt-10  h-screen  px-14  z-10 "
             : "bg-orange-100  absolute top-0 md:hidden lg:hidden  -left-96 transtion-all duration-300   px-20 pt-10 z-10 h-screen"
         }
       >

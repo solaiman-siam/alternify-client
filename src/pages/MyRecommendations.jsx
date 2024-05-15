@@ -37,7 +37,6 @@ function MyRecommendations() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["my-recommendation"] });
-      console.log("deleted successfully");
       Swal.fire({
         title: "Deleted!",
         text: "Your file has been deleted.",

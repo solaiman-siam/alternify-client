@@ -7,7 +7,7 @@ import {
 function WeWorkFor() {
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="bg-[url('https://i.postimg.cc/P5qXrXRY/topographic-large-grey.webp')]  bg-center bg-cover w-full h-[1200px] lg:h-[650px]">
+      <div className="bg-[url('https://i.postimg.cc/P5qXrXRY/topographic-large-grey.webp')]  bg-center bg-cover w-full h-[1200px] md:h-[900px] lg:h-[650px]">
         <div className="w-full flex-col justify-center flex md:pt-12 pt-8 lg:pt-20">
           <h3 className="text-orange-400 font-medium lg:text-2xl md:text-2xl text-xl pb-4  text-center">
             We Work For

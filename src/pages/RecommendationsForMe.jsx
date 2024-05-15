@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
@@ -18,8 +17,6 @@ function RecommendationsForMe() {
     );
     return data;
   };
-
-  console.log(recommendationForMe);
 
   if (isLoading)
     return (

@@ -14,8 +14,6 @@ function RecentQueries() {
     return data;
   };
 
-  console.log(recentQueries);
-
   if (isLoading)
     return (
       <div className="w-full h-screen flex justify-center items-center">
