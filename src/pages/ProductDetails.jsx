@@ -260,12 +260,12 @@ function ProductDetails() {
           All Recommendation Here
         </h3>
         <div>
-          <div className="grid grid-cols-3 gap-6 dark:bg-gray-900 py-14 px-14">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 dark:bg-gray-900 py-14 px-14">
             {allRecommendation < 1 ? (
               <>
                 <div className="flex col-span-3 justify-center py-8">
                   <h1 className="text-center dark:text-gray-200 ">
-                    No Data Found
+                    No Data Found !!
                   </h1>
                 </div>
               </>
