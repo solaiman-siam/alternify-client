@@ -34,8 +34,8 @@ function RecentQueries() {
   // const recentEight = sortRecentQueries.
 
   return (
-    <div className="max-w-7xl mx-auto ">
-      <div className="bg-[#FFF8F1] pt-10 ">
+    <div className=" bg-[#FFF8F1] ">
+      <div className=" pt-10 max-w-7xl mx-auto ">
         <h2 className="text-orange-400 text-2xl px-8 md:px-10   font-medium pb-3   lg:pl-14">
           Conscientious Choices
         </h2>
@@ -43,7 +43,7 @@ function RecentQueries() {
           Recent Collective Queries
         </h1>
       </div>
-      <div className="grid lg:grid-cols-4 dark:bg-gray-900 md:grid-cols-2 grid-cols-1 gap-8 lg:px-14 px-6 md:px-10 py-20 bg-orange-50">
+      <div className="grid max-w-7xl mx-auto lg:grid-cols-4 dark:bg-gray-900 md:grid-cols-2 grid-cols-1 gap-8 lg:px-14 px-6 md:px-10 py-20 bg-orange-50">
         {sortRecentQueries.slice(0, 8).map((query) => (
           <div
             key={query._id}

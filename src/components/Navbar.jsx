@@ -24,14 +24,12 @@ function Navbar() {
   const handleSignOut = () => {
     logoutUser()
       .then(() => {
-        axios
-          .post(
-            `${import.meta.env.VITE_API_URL}/logout`,
-            { email: user?.email },
-            { withCredentials: true }
-          )
-          
-        
+        axios.post(
+          `${import.meta.env.VITE_API_URL}/logout`,
+          { email: user?.email },
+          { withCredentials: true }
+        );
+
         localStorage.removeItem("email");
       })
       .catch((error) => {
@@ -40,8 +38,8 @@ function Navbar() {
   };
 
   return (
-    <div className="w-full relative max-w-7xl px-4 bg-gray-50 dark:bg-gray-800 mx-auto  h-20  ">
-      <div className="flex justify-between lg:px-6  h-full items-center ">
+    <div className="w-full relative  bg-gray-50 dark:bg-gray-800   h-20  ">
+      <div className="flex justify-between lg:px-6 max-w-7xl px-4 mx-auto  h-full items-center ">
         <Link to="/" className="flex justify-center items-center ">
           <img className="w-[40px]" src={logo} alt="" />
           <h3 className="lg:text-3xl text-[26px]  dark:text-gray-200 font-bold">

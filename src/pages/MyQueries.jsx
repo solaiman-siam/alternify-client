@@ -79,10 +79,10 @@ function MyQueries() {
     );
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="">
       {/* add queries banner */}
       <div className="bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')] w-full h-[250px]">
-        <div className="flex justify-center items-center w-ful px-6  flex-col h-full">
+        <div className="flex max-w-7xl mx-auto justify-center items-center w-ful px-6  flex-col h-full">
           <h3 className="lg:text-3xl dark:text-gray-700 md:text-3xl text-2xl text-center font-semibold  pb-6">
             Be the Voice of Change: Share Your Ethical Finds!
           </h3>
@@ -97,17 +97,19 @@ function MyQueries() {
 
       {/* my queries  */}
 
-      <div className="dark:bg-gray-900">
-        <div className="bg-[#f3f4f68e] dark:bg-gray-700 h-16 px-14 items-center flex justify-start">
+      <div className="dark:bg-gray-900 bg-[#FFF8F1]">
+        <div className=" dark:bg-gray-700 max-w-7xl mx-auto h-16 px-14 items-center flex justify-start">
           <Link to={"/"} className="text-gray-400 pr-4 hover:text-[#FF8A4C]">
             Home
           </Link>
           <IoIosArrowForward color="#7F8389" />
           <h4 className="text-gray-900 pl-4 dark:text-gray-300">My Queries</h4>
         </div>
-        <h1 className="lg:text-3xl  md:text-3xl text-2xl border-b lg:mx-14 mx-6 md:mx-10   lg:mt-12 md:mt-8 mt-6 dark:text-gray-200  font-semibold md:py-6 py-4 lg:py-8">
-          My Products Collection
-        </h1>
+        <div className=" max-w-7xl mx-auto ">
+          <h1 className="lg:text-3xl md:text-3xl text-2xl border-b lg:mx-14 mx-6 md:mx-10   lg:mt-12 md:mt-8 mt-6 dark:text-gray-200  font-semibold md:py-6 py-4 lg:py-8">
+            My Products Collection
+          </h1>
+        </div>
         {queries < 1 ? (
           <>
             <div className="flex justify-center font-bold dark:text-gray-300 py-20">
@@ -116,7 +118,7 @@ function MyQueries() {
           </>
         ) : (
           <>
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 py-14 px-14">
+            <div className="grid lg:grid-cols-3 max-w-7xl mx-auto md:grid-cols-2 grid-cols-1 gap-6 py-14 px-14">
               {sortMyQueries.map((query) => (
                 <div
                   key={query._id}

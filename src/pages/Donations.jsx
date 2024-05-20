@@ -22,7 +22,7 @@ function Donations() {
           </p>
         </div>
       </div>
-      <div className="bg-white dark:bg-gray-900 md:py-24 py-12 lg:py-32 px-6 md:px-12 lg:pl-52">
+      <div className="bg-white max-w-7xl mx-auto dark:bg-gray-900 md:py-24 py-12 lg:py-32 px-6 md:px-12 lg:pl-52">
         <h3 className="text-xl font-semibold text-orange-400">
           URGENT CALL TO ACTION
         </h3>

@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 function Slider() {
   return (
-    <div className="max-w-7xl mx-auto ">
+    <div className=" ">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -27,8 +27,8 @@ function Slider() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="w-full md:h-[500px] h-[500px] lg:h-[450px] flex justify-center items-center lg:pl-52 bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')]">
-            <div className="px-6 lg:px-0 md:px-12">
+          <div className="w-full md:h-[500px] h-[500px] lg:h-[450px] flex justify-center items-center lg:pl-52 bg-cover bg-center bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')]">
+            <div className="px-6  lg:px-0 md:px-12 max-w-7xl w-full mx-auto">
               <h3 className="text-[#FF7F32] font-semibold text-xl md:text-xl  lg:text-2xl pb-4">
                 ETHICAL CONSUMPTION GUIDE
               </h3>
@@ -47,7 +47,7 @@ function Slider() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="w-full  md:h-[500px] h-[500px] lg:h-[450px] flex justify-center items-center lg:pl-52 bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')]">
-            <div className="px-6 lg:px-0 md:px-12">
+            <div className="px-6 lg:px-0 md:px-12 max-w-7xl w-full mx-auto">
               <h3 className="text-[#FF7F32] font-semibold uppercase text-xl md:text-xl  lg:text-2xl pb-4">
                 ETHICAL CONSUMPTION GUIDE
               </h3>
@@ -65,7 +65,7 @@ function Slider() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="w-full  md:h-[500px] h-[500px] lg:h-[450px] flex justify-center items-center lg:pl-52 bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')]">
-            <div className="px-6 lg:px-0 md:px-12">
+            <div className="px-6 lg:px-0 md:px-12 max-w-7xl w-full mx-auto">
               <h3 className="text-[#FF7F32] font-semibold uppercase text-xl md:text-xl  lg:text-2xl pb-4">
                 ETHICAL CONSUMPTION GUIDE
               </h3>
