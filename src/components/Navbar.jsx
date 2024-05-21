@@ -49,20 +49,32 @@ function Navbar() {
         <ul className="lg:flex gap-5 pl-10 hidden ">
           <NavLink
             to="/"
-            className="btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            className={({ isActive }) =>
+              isActive
+                ? "btn btn-sm text-[#FF7F32]  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                : "btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            }
           >
             Home
           </NavLink>
 
           <NavLink
-            className="btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            className={({ isActive }) =>
+              isActive
+                ? "btn btn-sm text-[#FF7F32]  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                : "btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            }
             to="/queries"
           >
             Queries
           </NavLink>
           <NavLink
             to="/donations"
-            className="btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            className={({ isActive }) =>
+              isActive
+                ? "btn btn-sm text-[#FF7F32]  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                : "btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            }
           >
             Donations
           </NavLink>
@@ -70,7 +82,11 @@ function Navbar() {
             <>
               <NavLink
                 to="/my-queries"
-                className="btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200  border-none shadow-none hover:text-[#FF7F32]"
+                className={({ isActive }) =>
+                  isActive
+                    ? "btn btn-sm text-[#FF7F32]  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                    : "btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                }
               >
                 My Queries
               </NavLink>
@@ -85,7 +101,11 @@ function Navbar() {
               >
                 <Dropdown.Item>
                   <NavLink
-                    className="btn btn-sm   border-none shadow-none hover:text-[#FF7F32]"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "btn btn-sm text-[#FF7F32]  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                        : "btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                    }
                     to={"/my-recommendations"}
                   >
                     My Recommendations
@@ -93,7 +113,11 @@ function Navbar() {
                 </Dropdown.Item>
                 <Dropdown.Item>
                   <NavLink
-                    className="btn btn-sm   border-none shadow-none hover:text-[#FF7F32]"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "btn btn-sm text-[#FF7F32]  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                        : "btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                    }
                     to={"/recommendations-for-me"}
                   >
                     Recommendations For Me
@@ -191,25 +215,41 @@ function Navbar() {
         <ul className="flex-col flex space-y-4   pt-10">
           <NavLink
             to="/"
-            className="hover:text-[#FF7F32] dark:text-white font-semibold hover:link-hover"
+            className={({ isActive }) =>
+              isActive
+                ? "btn btn-sm text-[#FF7F32]   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                : "btn btn-sm   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            }
           >
             Home
           </NavLink>
           <NavLink
             to={"/queries"}
-            className="hover:text-[#FF7F32] dark:text-white font-semibold hover:link-hover"
+            className={({ isActive }) =>
+              isActive
+                ? "btn btn-sm text-[#FF7F32]   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                : "btn btn-sm   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            }
           >
             Queries
           </NavLink>
           <NavLink
             to={"/donations"}
-            className="hover:text-[#FF7F32] dark:text-white font-semibold hover:link-hover"
+            className={({ isActive }) =>
+              isActive
+                ? "btn btn-sm text-[#FF7F32]   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                : "btn btn-sm   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            }
           >
             Donation
           </NavLink>
           <NavLink
             to={"my-queries"}
-            className="hover:text-[#FF7F32] dark:text-white font-semibold hover:link-hover"
+            className={({ isActive }) =>
+              isActive
+                ? "btn btn-sm text-[#FF7F32]   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                : "btn btn-sm   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+            }
           >
             My Queries
           </NavLink>
@@ -221,7 +261,11 @@ function Navbar() {
           >
             <Dropdown.Item>
               <NavLink
-                className="btn btn-sm font-semibold   border-none shadow-none hover:text-[#FF7F32] dark:text-white"
+                className={({ isActive }) =>
+                  isActive
+                    ? "btn btn-sm text-[#FF7F32]   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                    : "btn btn-sm   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                }
                 to={"/my-recommendations"}
               >
                 My Recommendations
@@ -229,7 +273,11 @@ function Navbar() {
             </Dropdown.Item>
             <Dropdown.Item>
               <NavLink
-                className="btn btn-sm   border-none shadow-none hover:text-[#FF7F32] dark:text-white"
+                className={({ isActive }) =>
+                  isActive
+                    ? "btn btn-sm text-[#FF7F32]   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                    : "btn btn-sm   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
+                }
                 to={"/recommendations-for-me"}
               >
                 Recommendations For Me

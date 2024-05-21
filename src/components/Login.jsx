@@ -5,6 +5,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 import logo from "../.././public/logo_2.png";
+import { Helmet } from "react-helmet-async";
 function Login() {
   const { googleSignIn, loginUser } = useAuth();
 
@@ -78,6 +79,9 @@ function Login() {
 
   return (
     <div>
+      <Helmet>
+        <title>Alternify | Login</title>
+      </Helmet>
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 flex justify-center">
         <div className="max-w-screen-xl m-0 dark:bg-gray-900 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 w-full xl:w-5/12 p-6 sm:p-12">

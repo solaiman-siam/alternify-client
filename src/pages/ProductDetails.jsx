@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 function ProductDetails() {
   const axiosSecure = useAxiosSecure();
@@ -99,6 +100,9 @@ function ProductDetails() {
 
   return (
     <div className="max-w-7xl mx-auto">
+      <Helmet>
+        <title>Alternify | Details</title>
+      </Helmet>
       <div className="grid lg:grid-cols-2 md:grid-cols-1 dark:bg-gray-900 grid-cols-1 max-w-7xl mx-auto lg:px-14 px-6 md:px-10">
         <div className="max-w-2xl   overflow-hidden h-fit my-10 bg-white rounded-lg  dark:bg-gray-800">
           <div className="flex justify-center dark:bg-white relative">

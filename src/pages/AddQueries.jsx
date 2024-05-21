@@ -2,6 +2,7 @@ import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 function AddQueries() {
   const { user } = useAuth();
@@ -44,6 +45,9 @@ function AddQueries() {
 
   return (
     <div>
+      <Helmet>
+        <title>Alternify | Add Queries</title>
+      </Helmet>
       <div className="bg-white border-4 border-[#ff81323c] rounded-lg shadow relative m-10">
         <div className="flex items-start justify-between p-5 border-b rounded-t">
           <h3 className="text-xl font-semibold">Add Your Queries</h3>

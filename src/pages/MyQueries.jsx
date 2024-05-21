@@ -4,6 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import UpdateModal from "../components/UpdateModal";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 function MyQueries() {
   const queryClient = useQueryClient();
@@ -80,6 +81,9 @@ function MyQueries() {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Alternify | My Queries</title>
+      </Helmet>
       {/* add queries banner */}
       <div className="bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')] w-full h-[250px]">
         <div className="flex max-w-7xl mx-auto justify-center items-center w-ful px-6  flex-col h-full">

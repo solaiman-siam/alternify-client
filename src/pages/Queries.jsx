@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -73,6 +74,9 @@ function Queries() {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Alternify | Queries</title>
+      </Helmet>
       <div className="bg-[#FFF8F1]">
         <div className="bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')] w-full h-[200px]  md:h-[220px] lg:h-[250px]">
           <div className="flex max-w-7xl mx-auto justify-center items-center w-ful flex-col h-full">

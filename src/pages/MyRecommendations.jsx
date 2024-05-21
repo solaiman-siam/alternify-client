@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 function MyRecommendations() {
   const axiosSecure = useAxiosSecure();
@@ -78,6 +79,9 @@ function MyRecommendations() {
 
   return (
     <div className="max-w-7xl dark:bg-gray-900 mx-auto px-8 pt-5 md:pb-14 pb-10 lg:pb-24">
+      <Helmet>
+        <title>Alternify | My Recommendation</title>
+      </Helmet>
       <section className="container px-4 mx-auto py-6">
         <div className="flex items-center gap-x-3">
           <h2 className="text-lg font-medium text-gray-800 dark:text-white">

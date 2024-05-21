@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 function RecommendationsForMe() {
   const axiosSecure = useAxiosSecure();
@@ -33,6 +34,9 @@ function RecommendationsForMe() {
 
   return (
     <div className="dark:bg-gray-900">
+      <Helmet>
+        <title>Alternify | Recommendation For Me</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto   px-8 pt-5 md:pb-14 pb-10 ">
         <section className="container px-4   mx-auto py-6">
           <div className="flex items-center gap-x-3">

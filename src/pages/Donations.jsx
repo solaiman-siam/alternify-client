@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { BiDonateHeart } from "react-icons/bi";
 import { MdArrowRightAlt } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -5,6 +6,9 @@ import { Link } from "react-router-dom";
 function Donations() {
   return (
     <div className="">
+      <Helmet>
+        <title>Alternify | Donations</title>
+      </Helmet>
       <div className="bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')] w-full h-[450px]">
         <div className=" max-w-7xl mx-auto px-6 md:px-12 lg:pl-52 w-full h-full flex justify-center flex-col items-start">
           <h3 className="text-[#FF7F32] font-semibold uppercase text-xl md:text-xl  lg:text-2xl pb-4">

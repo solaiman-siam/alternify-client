@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import axios from "axios";
 import logo from "../.././public/logo_2.png";
+import { Helmet } from "react-helmet-async";
 function SignUp() {
   const navigate = useNavigate();
 
@@ -80,7 +81,7 @@ function SignUp() {
             },
             { withCredentials: true }
           )
-          .then((res) );
+          .then(res);
         Swal.fire({
           title: "Login Successful!",
           icon: "success",
@@ -97,6 +98,9 @@ function SignUp() {
 
   return (
     <div>
+      <Helmet>
+        <title>Alternify | SignUp</title>
+      </Helmet>
       <div className="min-h-screen bg-gray-100   dark:bg-gray-900 text-gray-900 flex justify-center">
         <div className="max-w-screen-xl m-0 dark:bg-gray-900 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 w-full xl:w-5/12 p-6 sm:p-12">
