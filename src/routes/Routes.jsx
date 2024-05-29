@@ -4,9 +4,8 @@ import Error from "../pages/Error";
 import Home from "../pages/Home";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
-
 import AboutUs from "../pages/AboutUs";
-import Donations from "../pages/Donations";
+import Donations from "../pages/Charity";
 import MyRecommendations from "../pages/MyRecommendations";
 import RecommendationsForMe from "../pages/RecommendationsForMe";
 import MyQueries from "../pages/MyQueries";
@@ -14,6 +13,8 @@ import Queries from "../pages/Queries";
 import AddQueries from "../pages/AddQueries";
 import ProductDetails from "../pages/ProductDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import DonateUs from "../pages/DonateUs";
+import Charity from "../pages/Charity";
 
 export const router = createBrowserRouter([
   {
@@ -50,8 +51,8 @@ export const router = createBrowserRouter([
         element: <AboutUs></AboutUs>,
       },
       {
-        path: "/donations",
-        element: <Donations></Donations>,
+        path: "/charity",
+        element: <Charity></Charity>,
       },
       {
         path: "/my-recommendations",
@@ -84,6 +85,10 @@ export const router = createBrowserRouter([
             <ProductDetails></ProductDetails>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/donateUs",
+        element: <DonateUs></DonateUs>,
       },
     ],
   },

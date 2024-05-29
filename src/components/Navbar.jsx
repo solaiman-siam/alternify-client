@@ -69,14 +69,14 @@ function Navbar() {
             Queries
           </NavLink>
           <NavLink
-            to="/donations"
+            to="/charity"
             className={({ isActive }) =>
               isActive
                 ? "btn btn-sm text-[#FF7F32]  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
                 : "btn btn-sm  bg-gray-50 dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
             }
           >
-            Donations
+            Charity
           </NavLink>
           {user && (
             <>
@@ -234,14 +234,14 @@ function Navbar() {
             Queries
           </NavLink>
           <NavLink
-            to={"/donations"}
+            to={"/charity"}
             className={({ isActive }) =>
               isActive
                 ? "btn btn-sm text-[#FF7F32]   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
                 : "btn btn-sm   dark:bg-gray-800 dark:text-gray-200 border-none shadow-none hover:text-[#FF7F32]"
             }
           >
-            Donation
+            Charity
           </NavLink>
           <NavLink
             to={"my-queries"}

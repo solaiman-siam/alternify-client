@@ -22,10 +22,10 @@ function Donate() {
             those dependent on life-support equipment, hanging in the balance.
           </p>
           <Link
-            to={"/donations"}
+            to={"/donateUs"}
             className="px-5 w-fit flex text-lg justify-center gap-2 items-center text-white font-medium hover:opacity-70 transition-opacity py-2.5 bg-[#059669] rounded-md"
           >
-            <span>Donate Now</span> <BiDonateHeart size={20} color="white" />
+            <span>Donate Us</span> <BiDonateHeart size={20} color="white" />
           </Link>
         </div>
       </div>

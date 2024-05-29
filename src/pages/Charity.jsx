@@ -3,11 +3,11 @@ import { BiDonateHeart } from "react-icons/bi";
 import { MdArrowRightAlt } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-function Donations() {
+function Charity() {
   return (
     <div className="">
       <Helmet>
-        <title>Alternify | Donations</title>
+        <title>Alternify | Charity</title>
       </Helmet>
       <div className="bg-[url('https://i.postimg.cc/KzPP4tDC/topographic-large.webp')] w-full h-[450px]">
         <div className=" max-w-7xl mx-auto px-6 md:px-12 lg:pl-52 w-full h-full flex justify-center flex-col items-start">
@@ -259,4 +259,4 @@ function Donations() {
   );
 }
 
-export default Donations;
+export default Charity;
