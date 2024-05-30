@@ -13,7 +13,7 @@ function DonateUs() {
           Your support is essential to keep this movement growing.{" "}
         </h4>
         <h4 className="font-thin text-lg pt-3 text-gray-600">
-          PACBI, on behalf of the BDS movement.
+          Donate today to fuel our movement for ethical alternatives.
         </h4>
 
         <Payment></Payment>

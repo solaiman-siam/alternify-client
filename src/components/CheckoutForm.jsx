@@ -51,7 +51,6 @@ function CheckoutForm() {
     if (error) {
       setPaymentError(error?.message);
     } else {
-      console.log("payment method", paymentMethod);
       setPaymentError("");
     }
 
