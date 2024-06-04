@@ -97,7 +97,7 @@ function CheckoutForm() {
   };
 
   return (
-    <div className="px-52 my-10 ">
+    <div className="lg:px-52 mt-10  max-w-6xl mx-auto">
       <form onSubmit={handleSubmit}>
         <div className="flex justify-center items-center mt-6 my-8">
           <p className="px-4 py-2 font-thin text-gray-700 rounded-l-sm  bg-gray-200">
@@ -117,7 +117,7 @@ function CheckoutForm() {
           options={{
             style: {
               base: {
-                fontSize: "22px",
+                fontSize: "20px",
                 color: "#424770",
                 "::placeholder": {
                   color: "#aab7c4",
@@ -131,7 +131,7 @@ function CheckoutForm() {
         />
         <div className="flex justify-center my-6">
           <button
-            className="bg-green-500 text-xl flex justify-center gap-2 items-center cursor-pointer text-white rounded-sm px-4 py-2 my-4"
+            className="bg-green-500 lg:text-xl flex justify-center gap-2 items-center cursor-pointer text-white rounded-sm px-4 py-2 my-4"
             type="submit"
             disabled={!stripe}
           >
